@@ -5,25 +5,22 @@ import self3 from '/public/self3.jpeg'
 
 const RenderImage = () => {
   return (
-    <div className="grid grid-cols-2 grid-rows-2 gap-4">
+    <div className="grid grid-cols-3 gap-4 py-4">
       <Image
         src={self2}
         alt="Self Photo 2"
-
+        className="rounded-2xl"
       />
-      <div className="">
       <Image
         src={self1}
-        width={250}
         alt="Self Photo 1"
+        className="rounded-2xl"
       />
       <Image
         src={self3}
-        width={250}
         alt="Self Photo 3"
-        className="object-contain"
+        className="rounded-2xl"
       />
-      </div>
     </div>
   )
 }
