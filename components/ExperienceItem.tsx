@@ -41,15 +41,15 @@ const ExperienceItem = ({ experience }: { experience: ExperienceType }) => {
     <li className="mb-10 ml-4">
       <div className="absolute w-3 h-3 rounded-full mt-2 -left-1.5 border border-gray-900 bg-gray-700"></div>
       <h3 className="text-lg font-semibold text-neutral-200">
-        {experience.type === "work"
+        {isWorkExperience(experience)
           ? experience.company
           : experience.institution}
         <span className="ml-2 italic text-base font-normal text-neutral-400">
-          {experience.type === "work" && experience.designation}
+          {isWorkExperience(experience) && experience.designation}
         </span>
       </h3>
       <time className="text-sm font-normal leading-none text-neutral-600">
-        {experience.type === "work"
+        {isWorkExperience(experience)
           ? experience.duration
           : experience.graduation}
       </time>
