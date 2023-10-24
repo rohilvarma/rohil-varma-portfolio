@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={hankenGrotesk.className}>
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto ">
           <Navbar />
           {children}
         </div>

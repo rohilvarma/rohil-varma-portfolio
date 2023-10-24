@@ -1,5 +1,24 @@
 import { IWorkExperience, IEducationExperience } from "@/interfaces/Experience";
 import { INavLink } from "@/interfaces/NavLink";
+import { ISkill } from "@/interfaces/Skill";
+
+import {
+  JavaOriginal,
+  JavascriptOriginal,
+  PythonOriginal,
+  TypescriptOriginal,
+  BashOriginal,
+  Html5Original,
+  Css3Original,
+  ReactOriginal,
+  AngularjsOriginal,
+  NextjsOriginal,
+  DjangoPlain,
+  TailwindcssPlain,
+  BootstrapPlain,
+  AzurePlain,
+} from "devicons-react";
+
 
 export const profileDescription: string[] = [
   "As a software engineer, my journey began with a fascination for HTML during my school years. With a strong grasp of Java and a knack for web development, I embarked on a fast-track trajectory.",
@@ -78,8 +97,8 @@ export const navLinks: INavLink[] = [
   },
   {
     key: 2,
-    link: "about",
-    url: "/about",
+    link: "experience",
+    url: "/experience",
   },
   {
     key: 3,
@@ -88,7 +107,97 @@ export const navLinks: INavLink[] = [
   },
   {
     key: 4,
-    link: "contact",
-    url: "/contact"
+    link: "projects",
+    url: "/projects"
   }
 ];
+
+const iconSize: number = 35
+const iconClass: string = "mx-auto"
+
+export const skills: ISkill[] = [
+  {
+    key: 1,
+    name: "Java",
+    type: "language",
+    icon: <JavaOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 2,
+    name: "Python",
+    type: "language",
+    icon: <PythonOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 5,
+    name: "JavaScript",
+    type: "language",
+    icon: <JavascriptOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 6,
+    name: "TypeScript",
+    type: "language",
+    icon: <TypescriptOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 3,
+    name: "HTML",
+    type: "language",
+    icon: <Html5Original className={iconClass} size={iconSize} />
+  },
+  {
+    key: 4,
+    name: "CSS",
+    type: "language",
+    icon: <Css3Original className={iconClass} size={iconSize} />
+  },
+  {
+    key: 7,
+    name: "React",
+    type: "framework",
+    icon: <ReactOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 8,
+    name: "Next.JS",
+    type: "framework",
+    icon: <NextjsOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 9,
+    name: "Angular",
+    type: "framework",
+    icon: <AngularjsOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    key: 10,
+    name: "Django",
+    type: "framework",
+    icon: <DjangoPlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 11,
+    name: "Azure",
+    type: "cloud",
+    icon: <AzurePlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 12,
+    name: "Tailwind CSS",
+    type: "framework",
+    icon: <TailwindcssPlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 13,
+    name: "Bootstrap",
+    type: "framework",
+    icon: <BootstrapPlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 14,
+    name: "Bash",
+    type: "language",
+    icon: <BashOriginal className={iconClass} size={iconSize} />
+  }
+]

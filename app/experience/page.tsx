@@ -2,9 +2,9 @@ import ExperienceItem from "@/components/ExperienceItem";
 import Heading from "@/components/Heading";
 import { workExperience, educationExperience } from "@/data/data";
 
-const AboutPage = () => {
+const ExperiencePage = () => {
   return (
-    <div className="">
+    <div className="text-selection">
       <Heading heading={"Work Experience"} />
       <ol className="timeline">
         {workExperience.map((workEx) => (
@@ -24,4 +24,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ExperiencePage;
