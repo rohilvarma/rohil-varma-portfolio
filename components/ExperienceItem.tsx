@@ -1,4 +1,4 @@
-import { IEducationExperience, IWorkExperience } from "@/interfaces/Experience";
+import { IEducationExperience, IWorkExperience } from "@/interfaces";
 
 type ExperienceType = IWorkExperience | IEducationExperience;
 

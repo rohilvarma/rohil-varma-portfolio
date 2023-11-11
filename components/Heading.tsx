@@ -1,4 +1,4 @@
-import { IHead } from "@/interfaces/Head";
+import { IHead } from "@/interfaces";
 
 const Heading = ({heading}: IHead) => {
   return (

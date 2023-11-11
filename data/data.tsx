@@ -1,6 +1,4 @@
-import { IWorkExperience, IEducationExperience } from "@/interfaces/Experience";
-import { INavLink } from "@/interfaces/NavLink";
-import { ISkill } from "@/interfaces/Skill";
+import { ISkill, INavLink, IEducationExperience, IWorkExperience } from "@/interfaces";
 
 import {
   JavaOriginal,
@@ -112,7 +110,7 @@ export const navLinks: INavLink[] = [
   }
 ];
 
-const iconSize: number = 35
+const iconSize: number = 25
 const iconClass: string = "mx-auto"
 
 export const skills: ISkill[] = [
@@ -184,7 +182,7 @@ export const skills: ISkill[] = [
   },
   {
     key: 12,
-    name: "Tailwind CSS",
+    name: "TailwindCSS",
     type: "framework",
     icon: <TailwindcssPlain className={iconClass} size={iconSize} />
   },
