@@ -2,7 +2,10 @@ import { IEducationExperience, IWorkExperience } from "@/interfaces";
 
 type ExperienceType = IWorkExperience | IEducationExperience;
 
-const ExperienceItem = ({ experience }: { experience: ExperienceType }) => {
+const ExperienceItem = ({ experience, onlyTimeline }: {
+  experience: ExperienceType;
+  onlyTimeline: boolean;
+}) => {
   const isEducationExperience = (
     edEx: ExperienceType
   ): edEx is IEducationExperience => {
@@ -38,8 +41,8 @@ const ExperienceItem = ({ experience }: { experience: ExperienceType }) => {
   };
 
   return (
-    <li className="mb-10 ml-4">
-      <div className="absolute w-3 h-3 rounded-full mt-2 -left-1.5 border border-gray-900 bg-gray-700"></div>
+    <li className={`mb-6 ml-4`}>
+      <div className={`absolute w-3 h-3 rounded-full ${onlyTimeline ? 'mt-4' : 'mt-2'} -left-1.5 border border-gray-900 bg-gray-700`}></div>
       <h3 className="text-lg font-semibold text-neutral-200">
         {isWorkExperience(experience)
           ? experience.company
@@ -53,11 +56,13 @@ const ExperienceItem = ({ experience }: { experience: ExperienceType }) => {
           ? experience.duration
           : experience.graduation}
       </time>
-      <div className="mb-4 text-base font-normal text-neutral-500">
-        {experience.type === "work"
-          ? renderWorkExperience()
-          : renderEducationExperience()}
-      </div>
+      {!onlyTimeline && (
+        <div className="mb-4 text-base font-normal text-neutral-500">
+          {experience.type === "work"
+            ? renderWorkExperience()
+            : renderEducationExperience()}
+        </div>
+      )}
     </li>
   );
 };

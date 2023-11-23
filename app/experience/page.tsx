@@ -8,7 +8,7 @@ const ExperiencePage = () => {
       <Heading heading={"Work Experience"} />
       <ol className="timeline">
         {workExperience.map((workEx) => (
-          <ExperienceItem experience={workEx} key={workEx.key} />
+          <ExperienceItem experience={workEx} onlyTimeline={false} key={workEx.key} />
         ))}
       </ol>
 
@@ -17,7 +17,7 @@ const ExperiencePage = () => {
       <Heading heading={"Education"} />
       <ol className="timeline">
         {educationExperience.map((eduEx) => (
-          <ExperienceItem experience={eduEx} key={eduEx.key} />
+          <ExperienceItem experience={eduEx} onlyTimeline={false} key={eduEx.key} />
         ))}
       </ol>
     </div>

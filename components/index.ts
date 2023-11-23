@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import Navbar from "./Navbar";
 import RenderImage from "./RenderImage";
 import SkillItem from "./SkillItem";
+import Footer from "./Footer";
 
 export {
   ExperienceItem,
@@ -10,4 +11,5 @@ export {
   Navbar,
   RenderImage,
   SkillItem,
+  Footer
 }

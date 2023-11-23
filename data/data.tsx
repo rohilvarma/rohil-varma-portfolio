@@ -19,8 +19,10 @@ import {
 
 
 export const profileDescription: string[] = [
-  "As a software engineer, my journey began with a fascination for HTML during my school years. With a strong grasp of Java and a knack for web development, I embarked on a fast-track trajectory.",
-  "Constantly seeking growth opportunities and currently expanding my skill set with Next.js and Django. I am driven by the satisfaction of overcoming challenges and believe in breaking down complex problems into manageable solutions. With a goal to become a highly knowledgeable full-stack engineer, I am determined to leave a lasting impact in the world of software engineering."
+  "I'm a software developer currently working at Deloitte USI. I spend my days diving into Python scripting, crafting solutions and enjoying the intricacies of code.",
+  "Always up for a challenge, I'm on a constant quest for growth. Right now, I'm broadening my skills with Next.JS and Django because, well, why not? I find joy in tackling complex problems, breaking them down into manageable bits.",
+  "Currently, I bring my coding enthusiasm to Deloitte, where I specialize in Python scripting. Here's a glimpse of my professional journey:",
+  "My aim? To become a savvy full-stack engineer and make a mark in the software engineering world. In the meanwhile, have a look at my toolkit:"
 ]
 
 export const workExperience: IWorkExperience[] = [
@@ -100,17 +102,12 @@ export const navLinks: INavLink[] = [
   },
   {
     key: 3,
-    link: "skills",
-    url: "/skills",
-  },
-  {
-    key: 4,
     link: "projects",
     url: "/projects"
   }
 ];
 
-const iconSize: number = 25
+const iconSize: number = 15
 const iconClass: string = "mx-auto"
 
 export const skills: ISkill[] = [
