@@ -196,3 +196,8 @@ export const skills: ISkill[] = [
     icon: <BashOriginal className={iconClass} size={iconSize} />
   }
 ]
+
+export const socialMediaLinks = {
+  "linkedin": 'https://www.linkedin.com/in/rohil-varma/',
+  "github": "https://github.com/rohilvarma11"
+}
