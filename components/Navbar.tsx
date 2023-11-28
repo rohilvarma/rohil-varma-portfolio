@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { navLinks } from "@/data/data";
 import { usePathname } from "next/navigation";
+import { GoDownload } from "react-icons/go";
 
 const Navbar = () => {
 
@@ -15,6 +16,7 @@ const Navbar = () => {
             {navLink.link}
           </Link>
         ))}
+        <Link href="/Rohil Varma.pdf" className="nav-link ml-auto flex items-center" target='_blank' download="Rohil Varma.pdf">resume <GoDownload /></Link>
       </div>
     </nav>
   );

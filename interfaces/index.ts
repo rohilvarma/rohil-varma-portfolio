@@ -26,6 +26,14 @@ export interface INavLink {
   url: string;
 }
 
+export interface IGitHubRepos {
+  name: string
+  techUsed: string[]
+  description: string
+  githubLink: string
+  liveURL: string
+}
+
 export interface ISkill {
   key: number;
   name: string;

@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import RenderImage from "./RenderImage";
 import SkillItem from "./SkillItem";
 import Footer from "./Footer";
+import ProjectCard from "./ProjectCard";
 
 export {
   ExperienceItem,
@@ -11,5 +12,6 @@ export {
   Navbar,
   RenderImage,
   SkillItem,
-  Footer
+  Footer,
+  ProjectCard
 }
