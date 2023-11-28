@@ -1,6 +1,11 @@
 import { ISkill } from "@/interfaces";
 
-const SkillItem = ({ skillItem, isTechStack }: { skillItem: ISkill, isTechStack: boolean }) => {
+type SkillItemProps = {
+  skillItem: ISkill
+  isTechStack?: boolean
+}
+
+const SkillItem = ({ skillItem, isTechStack = false }: SkillItemProps) => {
   return (
     <div className="flex items-center ring-2 ring-neutral-700 bg-neutral-900 rounded-sm p-2 pl-3">
       {skillItem.icon}{" "}
