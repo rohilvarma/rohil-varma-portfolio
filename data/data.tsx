@@ -15,6 +15,8 @@ import {
   TailwindcssPlain,
   BootstrapPlain,
   AzurePlain,
+  DockerPlain,
+  MysqlPlain
 } from "devicons-react";
 
 export const githubProjectsURL = 'https://api.github.com/users/rohilvarma11/repos'
@@ -211,12 +213,24 @@ export const skills: ISkill[] = [
   },
   {
     key: 12,
+    name: "Docker",
+    type: "framework",
+    icon: <DockerPlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 13,
+    name: "SQL",
+    type: "language",
+    icon: <MysqlPlain className={iconClass} size={iconSize} />
+  },
+  {
+    key: 14,
     name: "TailwindCSS",
     type: "framework",
     icon: <TailwindcssPlain className={iconClass} size={iconSize} />
   },
   {
-    key: 13,
+    key: 15,
     name: "Bootstrap",
     type: "framework",
     icon: <BootstrapPlain className={iconClass} size={iconSize} />
