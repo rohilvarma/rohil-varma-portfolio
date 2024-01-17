@@ -19,7 +19,7 @@ import {
   MysqlPlain
 } from "devicons-react";
 
-export const githubProjectsURL = 'https://api.github.com/users/rohilvarma11/repos'
+export const githubProjectsURL = 'https://api.github.com/users/rohilvarma/repos'
 
 export const profileDescription: string[] = [
   "I'm a software developer currently working at Deloitte USI. I spend my days diving into Python scripting, crafting solutions and enjoying the intricacies of code.",
@@ -245,5 +245,5 @@ export const skills: ISkill[] = [
 
 export const socialMediaLinks = {
   "linkedin": 'https://www.linkedin.com/in/rohil-varma/',
-  "github": "https://github.com/rohilvarma11"
+  "github": "https://github.com/rohilvarma"
 }
