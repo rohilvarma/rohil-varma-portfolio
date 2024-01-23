@@ -21,6 +21,8 @@ import {
 
 export const githubProjectsURL = 'https://api.github.com/users/rohilvarma/repos'
 
+const githubLink = "https://github.com/rohilvarma"
+
 export const profileDescription: string[] = [
   "I'm a software developer currently working at Deloitte USI. I spend my days diving into Python scripting, crafting solutions and enjoying the intricacies of code.",
   "Always up for a challenge, I'm on a constant quest for growth. Right now, I'm broadening my skills with Next.JS and Django because, well, why not? I find joy in tackling complex problems, breaking them down into manageable bits.",
@@ -70,28 +72,42 @@ export const githubRepos: IGitHubRepos[] = [
     name: 'My Portfolio',
     techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
     description: "First iteration of my website built using Next.JS and TailwindCSS, hosted on Vercel.",
-    githubLink: "https://github.com/rohilvarma11/rohil-varma-portfolio",
+    githubLink: `${githubLink}/rohil-varma-portfolio`,
     liveURL: "https://rohilvarma.com/"
+  },
+  {
+    name: 'Shortly Landing Page',
+    techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
+    description: "Simplify link sharing with my custom-built URL shortener. Input long URLs, receive concise links instantly. Enhance user experience and streamline your online presence effortlessly.",
+    githubLink: `${githubLink}/shortly-landing-page`,
+    liveURL: "https://shortly-landing-page-psi.vercel.app/"
+  },
+  {
+    name: 'Clipboard Landing Page',
+    techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
+    description: "Elevate your productivity with the innovative Clipboard. Experience seamless copying and sharing across devices. Simplify workflows and amplify efficiency effortlessly.",
+    githubLink: `${githubLink}/clipboard-landing-page`,
+    liveURL: "https://clipboard-landing-page-vert-alpha.vercel.app/"
   },
   {
     name: 'Bookmark Landing Page',
     techUsed: ['React', 'JavaScript', 'TailwindCSS'],
     description: "Transformed a design concept into reality with React and Tailwind CSS. Implemented a sleek and functional website bookmarking solution, showcasing my ability to bring visual ideas to life through coding expertise.",
-    githubLink: "https://github.com/rohilvarma11/bookmark-landing-page",
+    githubLink: `${githubLink}/bookmark-landing-page`,
     liveURL: "https://bookmark-landing-page-spa.netlify.app/"
   },
   {
     name: "Budget Calculator App",
     techUsed: ["Angular", "TypeScript", "TailwindCSS"],
     description: "Built a cool budget manager using Angular and Tailwind CSS. It helps you handle your money easily with a smooth design and features like saving and editing expenses.",
-    githubLink: "https://github.com/rohilvarma11/budget-calculator-app",
+    githubLink: `${githubLink}/budget-calculator-app`,
     liveURL: "https://budget-calculator-app-using-angular.netlify.app/"
   },
   {
     name: "Sunnyside Landing Page",
     techUsed: ["React", "JavaScript", "TailwindCSS"],
     description: "Crafted a vibrant React landing page with Tailwind CSS, offering a sunny and modern user experience. Ideal for captivating content discovery.",
-    githubLink: "https://github.com/rohilvarma11/sunnyside-agency-landing-page",
+    githubLink: `${githubLink}/sunnyside-agency-landing-page`,
     liveURL: "https://sunny-side-agency-page.netlify.app/"
   }
 ]
@@ -245,5 +261,5 @@ export const skills: ISkill[] = [
 
 export const socialMediaLinks = {
   "linkedin": 'https://www.linkedin.com/in/rohil-varma/',
-  "github": "https://github.com/rohilvarma"
+  "github": githubLink
 }
