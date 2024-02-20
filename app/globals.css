@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #0e0d0d;
-  color: #f0f0f0;
-}
-
 @layer components {
   .text-self {
     @apply text-[#d4d4d4] leading-8 my-8 text-selection;
@@ -18,7 +13,7 @@ body {
     @apply relative border-l border-gray-700 ml-2 border-dashed;
   }
   .text-selection {
-    @apply selection:text-[#0e0d0d] selection:bg-[#f0f0f0];
+    @apply selection:text-bg_black selection:bg-text_white;
   }
   .skill-grid {
     @apply grid grid-cols-2 md:grid-cols-4 gap-3 -mt-4 mb-12;

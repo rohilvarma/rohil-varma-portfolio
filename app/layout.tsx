@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={hankenGrotesk.className}>
+      <body className={`${hankenGrotesk.className} scroll-smooth antialiased bg-bg_black text-text_white`}>
         <div className="mx-6 md:max-w-xl md:mx-auto">
           <Navbar />
           {children}

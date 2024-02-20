@@ -12,7 +12,7 @@ const ProjectCard = (repo: IGitHubRepos) => {
     })
   }
   return (
-    <div className="bg-neutral-800 rounded-md p-4 hover:translate-x-1 hover:-translate-y-1 duration-300 text-selection">
+    <div className="bg-neutral-900/80 rounded-md p-4 hover:translate-x-1 hover:-translate-y-1 duration-300 text-selection">
       <div className="flex items-center justify-between">
 
         <Link href={repo.githubLink} target="_blank">
