@@ -76,6 +76,20 @@ export const githubRepos: IGitHubRepos[] = [
     liveURL: "https://rohilvarma.com/"
   },
   {
+    name: 'Wordle Clone',
+    techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
+    description: "My Wordle clone, crafted with Next.js & Zustand, showcases creative problem-solving & modern development expertise, hosted on Vercel.",
+    githubLink: `${githubLink}/wordle-clone`,
+    liveURL: "https://wordle-clone-taupe.vercel.app/"
+  },
+  {
+    name: 'REST Countries API',
+    techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
+    description: "Built a dynamic country explorer with Next.JS & TailwindCSS, powered by REST Countries API, hosted on Vercel.",
+    githubLink: `${githubLink}/rest-countries-api`,
+    liveURL: "https://rest-countries-api-rust-tau.vercel.app/"
+  },
+  {
     name: 'Shortly Landing Page',
     techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
     description: "Simplify link sharing with my custom-built URL shortener. Input long URLs, receive concise links instantly. Enhance user experience and streamline your online presence effortlessly.",
