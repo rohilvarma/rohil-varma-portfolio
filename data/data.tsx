@@ -2,18 +2,15 @@ import { ISkill, INavLink, IEducationExperience, IWorkExperience, IGitHubRepos }
 
 import {
   JavaOriginal,
-  JavascriptOriginal,
   PythonOriginal,
   TypescriptOriginal,
   BashOriginal,
-  Html5Original,
-  Css3Original,
   ReactOriginal,
   AngularjsOriginal,
   NextjsOriginal,
   DjangoPlain,
   TailwindcssPlain,
-  BootstrapPlain,
+  FastapiPlain,
   AzurePlain,
   DockerPlain,
   MysqlPlain
@@ -25,7 +22,7 @@ const githubLink = "https://github.com/rohilvarma"
 
 export const profileDescription: string[] = [
   "I'm a software developer currently working at Deloitte USI. I spend my days diving into Python scripting, crafting solutions and enjoying the intricacies of code.",
-  "Always up for a challenge, I'm on a constant quest for growth. Right now, I'm broadening my skills with Next.JS and Django because, well, why not? I find joy in tackling complex problems, breaking them down into manageable bits.",
+  "Always up for a challenge, I'm on a constant quest for growth. Right now, I'm broadening my skills with Next.JS and Python because, well, why not? I find joy in tackling complex problems, breaking them down into manageable bits.",
   "Currently, I bring my coding enthusiasm to Deloitte, where I specialize in Python scripting. Here's a glimpse of my professional journey:",
   "My aim? To become a savvy full-stack engineer and make a mark in the software engineering world. In the meanwhile, have a look at my toolkit:"
 ]
@@ -33,6 +30,18 @@ export const profileDescription: string[] = [
 export const workExperience: IWorkExperience[] = [
   {
     key: 1,
+    company: "Deloitte India (Offices of the US)",
+    description: [
+      "Implement AI driven features using Chroma DB and LangChain to enhance user engagement and application performance.",
+      "Create, manage and optimize stored procedures (sprocs) in SQL, converting them into Python code for improved efficiency and scalability.",
+      "Develop UI screens with Angular and resolve issues to streamline user interfaces."
+    ],
+    duration: "June 2024 - Present",
+    designation: "Software Engineer 1",
+    type: "work"
+  },
+  {
+    key: 2,
     company: "Deloitte India (Offices of the US)",
     description: [
       "As a Python backend developer, I am a key contributor to the development of new features for the product. I work closely with the business team to understand their needs and expectations, and then design and implement solutions that meet those needs.",
@@ -44,7 +53,7 @@ export const workExperience: IWorkExperience[] = [
     type: "work"
   },
   {
-    key: 2,
+    key: 3,
     company: "Deloitte India (Offices of the US)",
     description: [
       "I was primarily tasked with completing my learnings on Azure. This included obtaining the AZ-900 certification, which demonstrates my foundational knowledge of cloud computing concepts.",
@@ -56,7 +65,7 @@ export const workExperience: IWorkExperience[] = [
     type: "work"
   },
   {
-    key: 3,
+    key: 4,
     company: "Delberto Club",
     description: [
       "Designed and developed the current deployed website of the company along with a template for an E-commerce site."
@@ -176,101 +185,81 @@ const iconClass: string = "mx-auto"
 
 export const skills: ISkill[] = [
   {
-    key: 1,
-    name: "Java",
-    type: "language",
-    icon: <JavaOriginal className={iconClass} size={iconSize} />
-  },
-  {
-    key: 2,
-    name: "Python",
-    type: "language",
-    icon: <PythonOriginal className={iconClass} size={iconSize} />
-  },
-  {
-    key: 5,
-    name: "JavaScript",
-    type: "language",
-    icon: <JavascriptOriginal className={iconClass} size={iconSize} />
-  },
-  {
-    key: 6,
-    name: "TypeScript",
-    type: "language",
-    icon: <TypescriptOriginal className={iconClass} size={iconSize} />
-  },
-  {
-    key: 3,
-    name: "HTML",
-    type: "language",
-    icon: <Html5Original className={iconClass} size={iconSize} />
-  },
-  {
-    key: 4,
-    name: "CSS",
-    type: "language",
-    icon: <Css3Original className={iconClass} size={iconSize} />
-  },
-  {
-    key: 7,
-    name: "React",
-    type: "framework",
-    icon: <ReactOriginal className={iconClass} size={iconSize} />
-  },
-  {
-    key: 8,
     name: "Next.JS",
     type: "framework",
     icon: <NextjsOriginal className={iconClass} size={iconSize} />
   },
   {
-    key: 9,
+    name: "React",
+    type: "framework",
+    icon: <ReactOriginal className={iconClass} size={iconSize} />
+  },
+  {
     name: "Angular",
     type: "framework",
     icon: <AngularjsOriginal className={iconClass} size={iconSize} />
   },
   {
-    key: 10,
+    name: "TypeScript",
+    type: "language",
+    icon: <TypescriptOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    name: "Python",
+    type: "language",
+    icon: <PythonOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    name: "FastAPI",
+    type: "framework",
+    icon: <FastapiPlain className={iconClass} size={iconSize} />
+  },
+  {
+    name: "Chroma DB",
+    type: "cloud",
+    icon: null
+  },
+  {
+    name: "LangChain",
+    type: "framework",
+    icon: null
+  },
+  
+  {
     name: "Django",
     type: "framework",
     icon: <DjangoPlain className={iconClass} size={iconSize} />
   },
   {
-    key: 11,
     name: "Azure",
     type: "cloud",
     icon: <AzurePlain className={iconClass} size={iconSize} />
   },
   {
-    key: 12,
     name: "Docker",
     type: "framework",
     icon: <DockerPlain className={iconClass} size={iconSize} />
   },
   {
-    key: 13,
     name: "SQL",
     type: "language",
     icon: <MysqlPlain className={iconClass} size={iconSize} />
   },
   {
-    key: 14,
     name: "TailwindCSS",
     type: "framework",
     icon: <TailwindcssPlain className={iconClass} size={iconSize} />
   },
   {
-    key: 15,
-    name: "Bootstrap",
-    type: "framework",
-    icon: <BootstrapPlain className={iconClass} size={iconSize} />
-  },
-  {
-    key: 14,
     name: "Bash",
     type: "language",
     icon: <BashOriginal className={iconClass} size={iconSize} />
-  }
+  },
+  {
+    name: "Java",
+    type: "language",
+    icon: <JavaOriginal className={iconClass} size={iconSize} />
+  },
 ]
 
 export const socialMediaLinks = {

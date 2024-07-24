@@ -23,8 +23,8 @@ export default function Home() {
 
         <div className="text-self">{profileDescription[3]}</div>
         <div className="flex flex-wrap justify-center gap-2">
-          {skills.map((skill) => (
-            <SkillItem skillItem={skill} key={skill.key} />
+          {skills.map((skill, index) => (
+            <SkillItem skillItem={skill} key={index} />
           ))}
         </div>
       </section>
