@@ -4,6 +4,7 @@ import {
   JavaOriginal,
   PythonOriginal,
   TypescriptOriginal,
+  JavascriptOriginal,
   BashOriginal,
   ReactOriginal,
   AngularjsOriginal,
@@ -203,6 +204,11 @@ export const skills: ISkill[] = [
     name: "TypeScript",
     type: "language",
     icon: <TypescriptOriginal className={iconClass} size={iconSize} />
+  },
+  {
+    name: "JavaScript",
+    type: "language",
+    icon: <JavascriptOriginal className={iconClass} size={iconSize} />
   },
   {
     name: "Python",
