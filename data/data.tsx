@@ -48,7 +48,7 @@ export const workExperience: IWorkExperience[] = [
       "I am also responsible for deploying new features to production, and for optimizing and documenting my code.",
       "My work is essential to the success of the product, and it has been recognized with two spot awards for my contributions to the project. I am proud to use my skills and knowledge to solve complex problems and to create new value for customers.",
     ],
-    duration: "June 2022 - Present",
+    duration: "June 2022 - June 2024",
     designation: "Associate Software Engineer",
     type: "work"
   },
@@ -213,18 +213,7 @@ export const skills: ISkill[] = [
     name: "FastAPI",
     type: "framework",
     icon: <FastapiPlain className={iconClass} size={iconSize} />
-  },
-  {
-    name: "Chroma DB",
-    type: "cloud",
-    icon: null
-  },
-  {
-    name: "LangChain",
-    type: "framework",
-    icon: null
-  },
-  
+  },  
   {
     name: "Django",
     type: "framework",

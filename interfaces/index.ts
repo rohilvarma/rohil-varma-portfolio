@@ -37,5 +37,5 @@ export interface IGitHubRepos {
 export interface ISkill {
   name: string;
   type: "language" | "framework" | "cloud";
-  icon: React.FunctionComponentElement<any> | null;
+  icon: React.FunctionComponentElement<any>;
 }
