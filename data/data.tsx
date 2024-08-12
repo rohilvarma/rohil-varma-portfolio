@@ -33,9 +33,9 @@ export const workExperience: IWorkExperience[] = [
     key: 1,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "Implement AI driven features using Chroma DB and LangChain to enhance user engagement and application performance.",
-      "Create, manage and optimize stored procedures (sprocs) in SQL, converting them into Python code for improved efficiency and scalability.",
-      "Develop UI screens with Angular and resolve issues to streamline user interfaces."
+      "Spearheading the integration of Generative AI into the existing tagging feature, significantly boosting its precision and adaptability to meet evolving business requirements.",
+      "Actively exploring and implementing Vector Databases and cutting-edge Generative AI models, aiming to revolutionize data processing and analysis within the organization.",
+      "Engaging in continuous learning and research to leverage Vector Databases and Generative AI models for innovative use cases, enhancing data processing and analysis capabilities."
     ],
     duration: "June 2024 - Present",
     designation: "Software Engineer 1",
