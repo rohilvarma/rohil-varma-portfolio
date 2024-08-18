@@ -33,9 +33,9 @@ export const workExperience: IWorkExperience[] = [
     key: 1,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "Spearheading the integration of Generative AI into the existing tagging feature, significantly boosting its precision and adaptability to meet evolving business requirements.",
-      "Actively exploring and implementing Vector Databases and cutting-edge Generative AI models, aiming to revolutionize data processing and analysis within the organization.",
-      "Engaging in continuous learning and research to leverage Vector Databases and Generative AI models for innovative use cases, enhancing data processing and analysis capabilities."
+      "Spearheading the integration of Generative AI and LangChain into the tagging feature to improve execution and accuracy.",
+      "Managing deployment pipelines to ensure smooth and efficient project rollouts.",
+      "Improved stakeholder satisfaction by providing updates, acting on feedbackm and refining the tagging feature."
     ],
     duration: "June 2024 - Present",
     designation: "Software Engineer 1",
@@ -45,9 +45,10 @@ export const workExperience: IWorkExperience[] = [
     key: 2,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "As a Python backend developer, I am a key contributor to the development of new features for the product. I work closely with the business team to understand their needs and expectations, and then design and implement solutions that meet those needs.",
-      "I am also responsible for deploying new features to production, and for optimizing and documenting my code.",
-      "My work is essential to the success of the product, and it has been recognized with two spot awards for my contributions to the project. I am proud to use my skills and knowledge to solve complex problems and to create new value for customers.",
+      "Engineered a tagging feature in Python, crafting an API for seamless UI and Azure Data Factory integration. Reduced process time from 24-48 hours to just 5-10 minutes.",
+      "Implemented an advanced caching mechanism that improved code execution speed by approximately 90%.",
+      "Managed Azure DevOps boards to enhance project tracking and adherence to schedules.",
+      "Skilled in Azure Functions, Container Instances and Azure Data Factory, supporting cloud-based development and deployment."
     ],
     duration: "June 2022 - June 2024",
     designation: "Associate Software Engineer",
@@ -57,9 +58,8 @@ export const workExperience: IWorkExperience[] = [
     key: 3,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "I was primarily tasked with completing my learnings on Azure. This included obtaining the AZ-900 certification, which demonstrates my foundational knowledge of cloud computing concepts.",
-      "Once I had completed my Azure training, I was assigned to the frontend of the project, where I used my Angular skills to make UI changes.",
-      "This included interacting with the stakeholders of the project and accordingly managing expectations to ensure a smooth user experience."
+      "Revamped UI screens to streamline navigation and improve visual appeal, resulting in a more engaging user experience.",
+      "Engaged stakeholders to align project objectives with user expectations, ensuring seamless user experiences and effective collaboration."
     ],
     duration: "Jan 2022 - April 2022",
     designation: "Technology Intern",
