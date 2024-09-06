@@ -33,9 +33,9 @@ export const workExperience: IWorkExperience[] = [
     key: 1,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "Spearheading the integration of Generative AI and LangChain into the tagging feature to improve execution and accuracy.",
-      "Managing deployment pipelines to ensure smooth and efficient project rollouts.",
-      "Improved stakeholder satisfaction by providing updates, acting on feedbackm and refining the tagging feature."
+      "Leading the integration of Generative AI and LangChain into the tagging feature to improve execution and accuracy",
+      "Created a feedback mechanism that increased the accuracy of the tagging feature by 30%, significantly reducing false positive",
+      "Elevated stakeholder satisfaction by delivering regular updates and swiftly implementing 90% of feedback within two cycles."
     ],
     duration: "June 2024 - Present",
     designation: "Software Engineer 1",
@@ -45,10 +45,10 @@ export const workExperience: IWorkExperience[] = [
     key: 2,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "Engineered a tagging feature in Python, crafting an API for seamless UI and Azure Data Factory integration. Reduced process time from 24-48 hours to just 5-10 minutes.",
-      "Implemented an advanced caching mechanism that improved code execution speed by approximately 90%.",
-      "Managed Azure DevOps boards to enhance project tracking and adherence to schedules.",
-      "Skilled in Azure Functions, Container Instances and Azure Data Factory, supporting cloud-based development and deployment."
+      "Developed a tagging feature in Python, crafting an API for seamless UI and Azure Data Factory integration. Reduced process timefrom 24-48 hours to just 5-10 minutes.",
+      "Deployed an advanced caching mechanism that improved code execution speed by approximately 90%.",
+      "Managed Azure DevOps boards, leading to a 20% increase in on-time project delivery and boosted adherence to schedules.",
+      "Leveraged Docker with Azure Container Instances to roughly improve deployment efficiency by 40%."
     ],
     duration: "June 2022 - June 2024",
     designation: "Associate Software Engineer",
@@ -58,8 +58,8 @@ export const workExperience: IWorkExperience[] = [
     key: 3,
     company: "Deloitte India (Offices of the US)",
     description: [
-      "Revamped UI screens to streamline navigation and improve visual appeal, resulting in a more engaging user experience.",
-      "Engaged stakeholders to align project objectives with user expectations, ensuring seamless user experiences and effective collaboration."
+      "Redesigned UI screens, streamlining navigation and improving visual appeal, with 100% user approval and noticeable reduction innavigation time.",
+      "Collaborated with stakeholders through 3 feedback cycles, incorporating 85% of suggestions to ensure project alignment with userexpectations."
     ],
     duration: "Jan 2022 - April 2022",
     designation: "Technology Intern",
@@ -81,21 +81,21 @@ export const githubRepos: IGitHubRepos[] = [
   {
     name: 'My Portfolio',
     techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
-    description: "First iteration of my website built using Next.JS and TailwindCSS, hosted on Vercel.",
+    description: "Developed a modern portfolio with Next.js, TypeScript, and Tailwind CSS, leveraging Vercel Insights for performance tracking anduser behavior analysis. Improvements based on insights resulted in a 20% reduction in bounce rate.",
     githubLink: `${githubLink}/rohil-varma-portfolio`,
     liveURL: "https://rohilvarma.com/"
   },
   {
     name: 'Wordle Clone',
     techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
-    description: "My Wordle clone, crafted with Next.js & Zustand, showcases creative problem-solving & modern development expertise, hosted on Vercel.",
+    description: "Redesigned a Wordle clone with Next.js and TypeScript, using Static Side Generation to boost performance by approximately 30%and ensured real-time interactivity with efficient Zustand state management.",
     githubLink: `${githubLink}/wordle-clone`,
     liveURL: "https://wordle-clone-taupe.vercel.app/"
   },
   {
     name: 'REST Countries API',
     techUsed: ['Next.JS', 'TypeScript', 'TailwindCSS'],
-    description: "Built a dynamic country explorer with Next.JS & TailwindCSS, powered by REST Countries API, hosted on Vercel.",
+    description: "Innovated a site with Next.js, TypeScript, and Zustand using the REST Countries API. Improved Time to Interactive (TTI) by 20% withServer-Side Rendering (SSR). Features include routing, loading states, light/dark mode and filtering.",
     githubLink: `${githubLink}/rest-countries-api`,
     liveURL: "https://rest-countries-api-rust-tau.vercel.app/"
   },
