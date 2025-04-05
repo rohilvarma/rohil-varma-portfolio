@@ -3,9 +3,9 @@
 ## Features
 - [ ] Guest Book
 - [ ] Visit count
+  - [ ] Include date and time stamps
 - [ ] My stack
 - [ ] Motion animations
-- [ ] Blog
 - [ ] Blog
   - [ ] Blog View count
 - [ ] Photography

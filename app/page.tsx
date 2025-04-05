@@ -1,8 +1,11 @@
 import WavingEmoji from "@/components/WavingEmoji";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import profile from "@/public/profile.jpeg";
 import { Badge } from "@/components/ui/badge";
 import Skill from "@/components/Skill";
+import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import Work from "@/components/Work";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,20 +17,44 @@ export default function Home() {
               <span className="">Hi, I&apos;m Rohil</span>
               <WavingEmoji />
             </h1>
-            <div className="text-muted-foreground text-xl mt-2 flex items-start gap-2">
-              I love building solutions in{" "} 
-              <Badge variant="secondary">
-                <Skill name="typescript" size={20} className="mr-1" /> TypeScript
-              </Badge> and{" "}
-              <Badge variant="secondary"> <Skill name="python" size={20} className="mr-1" />Python</Badge>.
+            <div className="">
+              <div className="text-muted-foreground text-xl mt-4 mb-2 flex items-start gap-2">
+                I love building solutions in{" "}
+                <Badge variant="secondary">
+                  <Skill name="typescript" size={20} className="mr-1" />{" "}
+                  TypeScript
+                </Badge>{" "}
+                and{" "}
+                <Badge variant="secondary">
+                  {" "}
+                  <Skill name="python" size={20} className="mr-1" />
+                  Python
+                </Badge>
+                .
+              </div>
+              <div className="flex items-center gap-2">
+                <Link target="_blank" href="https://github.com/rohilvarma">
+                  <FaGithub size={25} />
+                </Link>
+                <Link target="_blank" href="https://linkedin.com/in/rohilvarma">
+                  <FaLinkedin size={25} />
+                </Link>
+              </div>
             </div>
           </div>
-          <Avatar className="w-1/4 h-1/4 border-4 border-purple-600">
-            <AvatarImage src={profile.src} alt="@rohilvarma" />
-            <AvatarFallback className="w-full h-full">
-              RV
-            </AvatarFallback>
-          </Avatar>
+          <Image
+            src={profile.src}
+            width={225}
+            height={225}
+            alt="@rohilvarma"
+            className="rounded-full border-4 border-blue-600"
+          />
+        </div>
+      </section>
+      <section className="grid grid-cols-5 mt-8">
+        <div className="col-span-3"></div>
+        <div className="col-span-2">
+        <Work />
         </div>
       </section>
     </main>

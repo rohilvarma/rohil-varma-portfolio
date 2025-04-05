@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth mx-4 md:max-w-3xl md:mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth mx-4 md:max-w-5xl md:mx-auto`}
       >
         <ThemeProvider
           attribute="class"
@@ -56,7 +56,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <div className="h-40 w-full bg-purple-600"></div>
+            <div className="h-40 w-full"></div>
 
             <div className="flex-grow">{children}</div>
             <Footer />
