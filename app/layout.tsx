@@ -1,8 +1,11 @@
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,24 +48,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth mx-4 md:max-w-5xl md:mx-auto`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth mx-4 md:max-w-5xl md:mx-auto`}
         >
-          <div className="flex flex-col min-h-screen">
-            <div className="h-40 w-full"></div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex flex-col min-h-screen">
+              <div className="h-40 w-full"></div>
 
-            <div className="flex-grow">{children}</div>
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
+              <div className="flex-grow">{children}</div>
+              <Footer />
+            </div>
+          </ThemeProvider>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

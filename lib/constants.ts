@@ -37,8 +37,25 @@ export const workEx = [
   },
 ]
 
-export const FooterContent = [
+export const footerContent = [
   {
-    
+    name: "Snippets",
+    link: "/snippets",
+  },
+  {
+    name: "Projects",
+    link: "/projects"
+  },
+  {
+    name: "Photography",
+    link: "/photography",
+  },
+  {
+    name: "Uses",
+    link: "/uses"
+  },
+  {
+    name: "Guestbook",
+    link: "/guestbook",
   }
 ]

@@ -1,7 +1,7 @@
 # Portfolio
 
 ## Features
-- [ ] Guest Book
+- [X] Guest Book
 - [ ] Visit count
   - [ ] Include date and time stamps
 - [ ] My stack
@@ -10,6 +10,8 @@
   - [ ] Blog View count
 - [ ] Photography
 - [ ] Snippets
-- [ ] Theme
-- [ ] Decide the contents of the footer
+- [X] Theme
+- [X] Decide the contents of the footer
+
+
 
