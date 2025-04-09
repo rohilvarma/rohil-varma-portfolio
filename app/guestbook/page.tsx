@@ -42,7 +42,7 @@ const GuestbookPage = async () => {
   return (
     <main className="">
       <Title title="GuestBook Works!" />
-      <div className="mt-4">
+      <div className="">
         <SignedOut>
           <SignInButton mode="modal">
             <Button variant="secondary">

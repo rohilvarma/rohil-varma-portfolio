@@ -1,12 +1,18 @@
 import Title from "@/components/Title";
 import { uses } from "@/lib/constants";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Uses | Rohil Varma",
+  description: "A list of (almost) everything I use."
+}
 
 const UsesPage = () => {
   return (
     <main>
       <Title title="/uses" />
-      <p className="mt-2 text-primary">
+      <p className="text-primary">
         If you’ve ever wondered what I’m using be it software, hardware, fonts,
         etc. then this page is dedicated for that. Based on{" "}
         <Link
@@ -21,9 +27,9 @@ const UsesPage = () => {
       <div className="mt-8">
         {uses.map((u, i) => {
           return (
-            <div key={i} className="grid grid-cols-2">
+            <div key={i} className="grid md:grid-cols-2 gap-4 sm:gap-0">
               <h1 className="font-bold text-3xl">{u.heading}</h1>
-              <ul className="">
+              <ul className="list-disc pl-4 md:pl-0 md:list-none">
                 {u.items.map((item, index) => (
                   <li key={index} className="mb-8">
                     <Link href={item.link} className="text-xl font-medium">{item.item}</Link>
