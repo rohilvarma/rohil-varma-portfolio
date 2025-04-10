@@ -1,9 +1,39 @@
 import Title from "@/components/Title";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { snippets } from "@/lib/constants";
+import Link from "next/link";
 
 const SnippetsPage = () => {
   return (
     <main className="">
-      <Title title="Snippets Works!" />
+      <Title title="/snippets" />
+      <p className="">
+        Ever found yourself searching for that one code snippet you know
+        you&apos;ve used before? Yeah, me too. That&apos;s why I created this
+        page - it&apos;s my go-to place for frequently used code bits. Feel free
+        to explore and use them in your projects!
+      </p>
+      <section className="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {snippets.map((snippet, index) => {
+          return (
+            <Link href={snippet.link} key={index}>
+              <Card className="max-w-sm">
+                <CardHeader>
+                  <CardTitle>{snippet.title}</CardTitle>
+                </CardHeader>
+                <CardFooter className="flex items-center gap-2 flex-wrap">
+                  {snippet.tags.map((tag, i) => (
+                    <Badge key={i}>
+                      {tag[0].toUpperCase() + tag.substring(1)}
+                    </Badge>
+                  ))}
+                </CardFooter>
+              </Card>
+            </Link>
+          );
+        })}
+      </section>
     </main>
   );
 };

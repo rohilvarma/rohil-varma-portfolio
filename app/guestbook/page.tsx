@@ -1,11 +1,17 @@
 import GuestbookForm from "@/components/GuestbookForm";
+import Notification from "@/components/Notification";
 import Title from "@/components/Title";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
+import { Metadata } from "next";
 import { FaGithub } from "react-icons/fa6";
 import { getComments } from "./actions";
-import Notification from "@/components/Notification";
+
+export const metadata: Metadata = {
+  title: "Guestbook | Rohil Varma",
+  description: "If you know me or follow my works or if you justlik.",
+};
 
 const GuestbookPage = async () => {
   const user = await currentUser();
@@ -41,7 +47,11 @@ const GuestbookPage = async () => {
 
   return (
     <main className="">
-      <Title title="GuestBook Works!" />
+      <Title title="/guestBook" />
+      <p className="text-primary mb-4">
+        Found something interesting? Like what you see? Drop a note and let me
+        know your thoughts!
+      </p>
       <div className="">
         <SignedOut>
           <SignInButton mode="modal">

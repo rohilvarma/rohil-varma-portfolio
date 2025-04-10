@@ -1,7 +1,5 @@
 import WavingEmoji from "@/components/WavingEmoji";
 import profile from "@/public/profile.jpeg";
-import { Badge } from "@/components/ui/badge";
-import Skill from "@/components/Skill";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import Work from "@/components/Work";
@@ -19,17 +17,7 @@ export default function Home() {
             </h1>
             <div className="">
               <div className="text-muted-foreground text-xl mt-4 mb-2 flex items-start gap-2">
-                I love building solutions in{" "}
-                <Badge variant="secondary">
-                  <Skill name="typescript" size={20} className="mr-1" />{" "}
-                  TypeScript
-                </Badge>{" "}
-                and{" "}
-                <Badge variant="secondary">
-                  {" "}
-                  <Skill name="python" size={20} className="mr-1" />
-                  Python
-                </Badge>
+                I love building solutions in and{" "}
                 .
               </div>
               <div className="flex items-center gap-2">
@@ -54,7 +42,7 @@ export default function Home() {
       <section className="grid grid-cols-5 mt-8">
         <div className="col-span-3"></div>
         <div className="col-span-2">
-        <Work />
+          <Work />
         </div>
       </section>
     </main>
