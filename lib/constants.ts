@@ -1,4 +1,16 @@
 import deloitteLogo from "@/public/deloitte_logo.jpeg";
+import { IconType } from "react-icons/lib";
+import {
+  SiDrizzle,
+  SiJavascript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiPython,
+  SiReact,
+  SiGnubash,
+  SiSupabase,
+  SiTypescript,
+} from "react-icons/si";
 
 export const workEx = [
   {
@@ -78,7 +90,6 @@ export const uses = [
       //   link: "https://www.amazon.in/dp/B08J5Y9ZSV?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1",
       //   description: "My first external display and a perfect upgrade to my desk setup. Clean, minimal, and just what I needed."
       // },
-      
     ],
   },
   {
@@ -110,51 +121,67 @@ export const uses = [
     ],
   },
   {
-    heading: "Others", 
+    heading: "Others",
     items: [
       {
         item: "iTerm2",
         link: "https://iterm2.com/",
-        description: "My terminal emulator of choice. Coupled with Zsh and custom themes, it's both powerful and beautiful."
+        description:
+          "My terminal emulator of choice. Coupled with Zsh and custom themes, it's both powerful and beautiful.",
       },
       {
         item: "Raycast",
         link: "https://www.raycast.com/",
-        description: "The ultimate productivity tool for Mac. Replaced Spotlight and never looked back."
+        description:
+          "The ultimate productivity tool for Mac. Replaced Spotlight and never looked back.",
       },
       {
         item: "Obsidian",
         link: "https://obsidian.md/",
-        description: "My digital brain for notes, thoughts, and connections. Markdown support and local-first approach make it perfect."
+        description:
+          "My digital brain for notes, thoughts, and connections. Markdown support and local-first approach make it perfect.",
       },
       {
         item: "Spotify",
         link: "https://open.spotify.com/",
-        description: "Essential companion for coding sessions. Sets the mood for productive development."
+        description:
+          "Essential companion for coding sessions. Sets the mood for productive development.",
       },
       {
         item: "Proton VPN",
         link: "https://protonvpn.com/?srsltid=AfmBOopmlV3mzoqWYKJ7wOBJRnpxX4XVCnFtUi-R0fOuUx27ENm7oWO5",
-        description: "My trusted VPN service. Open-source, secure, and allows me to bypass geo restrictions - exactly what a VPN should be."
+        description:
+          "My trusted VPN service. Open-source, secure, and allows me to bypass geo restrictions - exactly what a VPN should be.",
       },
-      
-    ]
-  }
+    ],
+  },
 ];
 
 export const snippets = [
   {
     link: "/snippets/cra-bash",
     title: "create-react-app using Bash",
-    tags: [
-      "bash", "react", "scripting"
-    ]
+    tags: ["Bash", "React", "Scripting"],
   },
   {
     link: "/snippets/boost-py-performance",
     title: "Boost Python Performance",
-    tags: [
-      "python"
-    ]
-  }
-]
+    tags: ["Python"],
+  },
+];
+
+interface IconMap {
+  [key: string]: IconType;
+}
+
+export const SKILL_MAP: IconMap = {
+  "Drizzle": SiDrizzle,
+  "TypeScript": SiTypescript,
+  "JavaScript": SiJavascript,
+  "Python": SiPython,
+  "Next.js": SiNextdotjs,
+  "Supabase": SiSupabase,
+  "React": SiReact,
+  "Tailwind CSS": SiTailwindcss,
+  "Bash": SiGnubash
+};

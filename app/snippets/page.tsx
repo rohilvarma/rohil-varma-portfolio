@@ -1,5 +1,5 @@
+import SkillBadge from "@/components/SkillBadge";
 import Title from "@/components/Title";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { snippets } from "@/lib/constants";
 import Link from "next/link";
@@ -24,9 +24,7 @@ const SnippetsPage = () => {
                 </CardHeader>
                 <CardFooter className="flex items-center gap-2 flex-wrap">
                   {snippet.tags.map((tag, i) => (
-                    <Badge key={i}>
-                      {tag[0].toUpperCase() + tag.substring(1)}
-                    </Badge>
+                    <SkillBadge key={i} name={tag} />
                   ))}
                 </CardFooter>
               </Card>
