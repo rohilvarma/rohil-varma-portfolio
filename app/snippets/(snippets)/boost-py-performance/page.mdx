@@ -1,0 +1,76 @@
+# Boost Python Performance
+
+Despite being one of the most popular scripting language. The primary disadvantage at hand with python is always performance. Owning to its dynamic nature and versatility, it takes a toll in the area of performance. Here a few tips that when incorporated in your code might help you improve the performance a bit:
+
+
+#### 1. Use the latest version of Python
+Using the latest version of python is always the better choice (as long as it doesn't break your existing application 😂) since it's updated and upgraded regularly, and every release is faster and more optimized. 
+
+#### 2. Use List comprehension
+Being an easier syntax for appending in a list as compared to for loop and append(), it performs better as it doesn't needs to load the append attribute of the list and call it as a function in each iteration as it happens in the traditional case, thereby slowing as compared to dynamic list creation.
+
+#### 3. Use pyarrow
+Whenever you are loading a csv file in your code, always use the pyarrow engine. Here are some 
+
+```jsx
+export default async function Page() {
+  let data = await fetch('https://api.vercel.app/blog')
+  let posts = await data.json()
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+```python
+from time import time
+from pandas import read_csv
+
+print('Without pyarrow engine')
+start = time()
+
+df = read_csv('./custom_2020.csv')
+print(df.shape)
+end = time()
+
+print("Execution", end-start)
+
+print('With pyarrow engine')
+
+start = time()
+new_df = read_csv('./custom_2020.csv', engine='pyarrow')
+print(df.shape)
+end = time()
+print('Execution', end-start)
+```
+
+![Performance comparision for a 218MB csv file](/assets/metric.webp)
+
+#### 4. Always use in-built functions
+In-built functions are always superior in terms of performance as compared to the custom functions because they are highly optimized. Moreover the custom functions are more prone to errors as compared to the in-built ones.
+
+#### 5. Always import the functions not the entire module
+Instead of using 
+`import module`
+
+using 
+`from module import xyz`
+
+offers slightly better performance as compared to the prior. Moreover its a good idea to distribute the imported packages all across the program instead of at the top. Though it may look like a good idea but for large scale projects, there might be cases of memory peaks when all the modules are loaded at once.
+
+#### 6. Concatenate strings with join
+Whenever we declare a string, a value is stored in the heap. So anytime we append to a respective string, the program has to first copy the entire string all over to the other place and then perform the append. using `' '.join(str)`. This may look trivial but for huge applications it contains the potential to spike the memory usage.
+
+#### 7. Use appropriate Data Structure
+Whenever working with any code it is extremely important to use the right Data Structure and the optimal algorithm that tailors around the use of the application. For instance, it would be stupid to use a _Stack_ instead of a _Queue_ when building a feature for queueing songs on a music app.
+
+---
+
+### Wrapping Up
+While Python is an incredible language with a plethora of tools at our disposal, it is crucial to know the tools and the methods that would help us achieve higher performance. There are a lot of packages that use C bindings that make our code faster by leaps and bounds. I have listed all the methods that I feel are the most important and (should do the job) but that does not mean that this it. One must always explore all the options/alternatives available to them before fixing on one of the approaches.
+
+Thanks for reading!

@@ -1,0 +1,118 @@
+# create-react-app with Bash
+
+Hi, this is my first post!
+
+This post I am going to share how to setup a React project using Bash
+
+## Why did I did what I did??
+I started using Ubuntu as my primary Operating System and eventually as any developer out there I came across the point when I had to start learning Bash. Scripting in Bash always felt fascinating but while I was on my learning ropes I wanted to create an actual script that could help me with my daily tasks.
+So one of the most mundane things beginners do while starting a React project is open up the terminal, navigate to location, enter `npx create-react-app xyz-project`, wait for it to finish, enter the src and public and remove everything and then finally start. Since I was also on the initial stages of React, I didn't have much knowledge about all the other things that we could do but anyway.
+What my script does is, all we need to do is execute and enter the name of the project and whether we wanna install tailwind or not (I love Tailwind CSS and its my goto framework) and voila we're ready to start development.
+
+```bash
+#!/bin/bash
+read -p "Enter the name of the project: " projectName
+echo "#######################################"
+echo "########### Starting Script ###########"
+echo "#######################################"
+
+#Change the directory according to wherever you store your development file
+startupFolder='/home/brownie/Desktop/Development/react-startup-files'
+
+npx create-react-app $projectName
+
+cd $projectName
+
+echo "This is the $projectName directory"
+
+ls -la
+
+echo "Removing src folder"
+
+rm -r src/
+
+mkdir src
+
+cd src
+
+touch index.js App.js index.css
+
+mkdir components
+
+echo "The new src/ directory"
+
+for i in $(ls)
+do
+    echo $i
+done
+
+echo "Writing in the index.js"
+cp $startupFolder/index.js index.js
+cat index.js
+
+echo "Writing in the App.js file" 
+cp $startupFolder/App.js App.js
+cat App.js
+
+cd ..
+
+echo "Removing public folder"
+
+rm -r public/
+
+mkdir public
+
+cd public/
+
+touch index.html
+
+echo "The new public/ directory"
+
+for i in $(ls)
+do
+    echo $i
+done
+
+echo "Writing index.html"
+cp $startupFolder/index.html index.html
+cp $startupFolder/favicon.ico ./
+cat index.html
+
+cd ..
+
+read -p "Do you want to install Tailwind?(y/n) " tailwindChoice
+
+if [[ "$tailwindChoice" == "y" ]]
+then
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+
+    echo "Writing the index.css file"
+    cd src/
+    cp $startupFolder/index.css index.css
+    cat index.css
+
+    echo "Writing the tailwind.config.js file"
+    cd ..
+    cp $startupFolder/tailwind.config.js tailwind.config.js
+    cat tailwind.config.js
+fi
+
+echo "Removing Git Files"
+sudo rm -r .git
+rm .gitignore
+
+read -p "Do you want to open in code?(y/n) " codeChoice
+
+if [[ "$codeChoice" == "y" ]]
+then
+    code .
+fi
+
+echo "Closing Terminal"
+
+exit
+```
+
+Ofcourse there can be a lot of modifications that can be made that being said its just a basic bash script to improve basic producivity workflow. 
+Feel free to share your thoughts on how you would upgrade this script to better suit your needs
