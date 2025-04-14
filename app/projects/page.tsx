@@ -31,9 +31,9 @@ const ProjectsPage = () => {
         and probably a few late-night coding sessions behind it.
       </p>
       <section id="tech-stack" className="mt-4">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, index) => (
-            <Card className="" key={index}>
+            <Card className="flex flex-col" key={index}>
               <CardHeader>
                 <CardTitle className="text-2xl flex justify-between items-start">
                   <span className="font-bold">{project.title}</span>
@@ -51,9 +51,9 @@ const ProjectsPage = () => {
                   project.tech.map((t, i) => <SkillBadge key={i} name={t} />)
                 }
               </CardContent>
-              <CardFooter className="grid grid-cols-2 gap-4 mt-auto">
+              <CardFooter className="grid grid-cols-2 gap-2 mt-auto">
                 <Link href={project.source}>
-                  <Button variant="secondary">
+                  <Button variant="secondary" className="w-full">
                     <FaGithub /> Source Code
                   </Button>
                 </Link>

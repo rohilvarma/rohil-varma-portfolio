@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const SnippetsPage = () => {
   return (
     <main className="">
-      <Title title="/snippets" />
+      <Title title="<snippets />" />
       <p className="">
         Ever found yourself searching for that one code snippet you know
         you&apos;ve used before? Yeah, me too. That&apos;s why I created this

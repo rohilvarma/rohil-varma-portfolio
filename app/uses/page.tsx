@@ -1,12 +1,13 @@
 import Title from "@/components/Title";
 import { uses } from "@/lib/constants";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Uses | Rohil Varma",
-  description: "A list of (almost) everything I use."
-}
+  description: "A list of (almost) everything I use.",
+};
 
 const UsesPage = () => {
   return (
@@ -23,7 +24,14 @@ const UsesPage = () => {
         </Link>
         .
       </p>
-
+      <Image
+        src="/assets/uses.JPG"
+        alt="Setup"
+        width={1980}
+        height={1080}
+        quality={100}
+        className="w-full h-full"
+      />
       <div className="mt-8">
         {uses.map((u, i) => {
           return (
@@ -32,10 +40,10 @@ const UsesPage = () => {
               <ul className="list-disc pl-4 md:pl-0 md:list-none">
                 {u.items.map((item, index) => (
                   <li key={index} className="mb-8">
-                    <Link href={item.link} className="text-xl font-medium">{item.item}</Link>
-                    <p className="text-muted-foreground">
-                      {item.description}
-                    </p>
+                    <Link href={item.link} className="text-xl font-medium">
+                      {item.item}
+                    </Link>
+                    <p className="text-muted-foreground">{item.description}</p>
                   </li>
                 ))}
               </ul>
