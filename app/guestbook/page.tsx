@@ -10,7 +10,7 @@ import { getComments } from "./actions";
 
 export const metadata: Metadata = {
   title: "Guestbook | Rohil Varma",
-  description: "If you know me or follow my works or if you justlik.",
+  description: "If you know me or follow my works or if you just liked what you see.",
 };
 
 const GuestbookPage = async () => {
@@ -47,7 +47,7 @@ const GuestbookPage = async () => {
 
   return (
     <main className="">
-      <Title title="/guestBook" />
+      <Title title={`Don't be shy! Leave a note!`} />
       <p className="text-primary mb-4">
         Found something interesting? Like what you see? Drop a note and let me
         know your thoughts!

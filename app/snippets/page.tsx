@@ -2,7 +2,13 @@ import SkillBadge from "@/components/SkillBadge";
 import Title from "@/components/Title";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { snippets } from "@/lib/constants";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Snippets | Rohil Varma",
+  description: "A collection of my frequently used code snippets.",
+};
 
 const SnippetsPage = () => {
   return (

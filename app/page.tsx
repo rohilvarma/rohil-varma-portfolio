@@ -45,6 +45,16 @@ export default function Home() {
           <Work />
         </div>
       </section>
+      <section id="contact-me">
+        
+        {/* 
+         
+         Add a Get in Touch component,
+         
+         Take reference: https://portfolio-magicui.vercel.app/
+         
+          */}
+      </section>
     </main>
   );
 }

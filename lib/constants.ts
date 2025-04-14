@@ -9,8 +9,28 @@ import {
   SiReact,
   SiGnubash,
   SiSupabase,
+  SiClerk,
+  SiShadcnui,
+  SiAuth0,
   SiTypescript,
+  SiZod,
 } from "react-icons/si";
+
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  source: string;
+  live: string | null;
+  status: {
+    name: string;
+    variant: "secondary" | "default" | "success" | "progress";
+  };
+};
+
+interface IconMap {
+  [key: string]: IconType;
+}
 
 export const workEx = [
   {
@@ -170,18 +190,116 @@ export const snippets = [
   },
 ];
 
-interface IconMap {
-  [key: string]: IconType;
-}
-
 export const SKILL_MAP: IconMap = {
-  "Drizzle": SiDrizzle,
-  "TypeScript": SiTypescript,
-  "JavaScript": SiJavascript,
-  "Python": SiPython,
+  Drizzle: SiDrizzle,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  Python: SiPython,
   "Next.js": SiNextdotjs,
-  "Supabase": SiSupabase,
-  "React": SiReact,
+  Supabase: SiSupabase,
+  React: SiReact,
   "Tailwind CSS": SiTailwindcss,
-  "Bash": SiGnubash
+  Bash: SiGnubash,
+  Clerk: SiClerk,
+  NextAuth: SiAuth0,
+  Shadcn: SiShadcnui,
+  Zod: SiZod,
 };
+
+export const skills = {
+  languages: ["TypeScript", "JavaScript", "Python", "Java"],
+  frameworks: ["Next.js", "Angular", "Tailwind", "BootStrap"],
+  database: ["Neon Postgres", "Supabase", "Drizzle ORM", "MongoDB", "SQL"],
+  auth: ["NextAuth", "Clerk"],
+  cloud: ["Azure"],
+};
+
+export const projects: Project[] = [
+  {
+    title: "Envoice",
+    description:
+      "Simple, modern invoicing that lets small businesses focus on what matters.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Drizzle",
+      "NextAuth",
+      "Tailwind CSS",
+      "Shadcn",
+      "Zod",
+    ],
+    source: "https://github.com/rohilvarma/envoice",
+    live: null,
+    status: {
+      variant: "progress",
+      name: "In-Progress",
+    },
+  },
+  {
+    title: "Git Vault",
+    description:
+      "Your personal cloud storage hack: Turn GitHub into a free media vault, no coding required.",
+    tech: ["Python"],
+    source: "https://github.com/rohilvarma/git-vault",
+    live: null,
+    status: {
+      name: "In-Progress",
+      variant: "progress",
+    },
+  },
+  {
+    title: "HTTP Server",
+    description:
+      "A custom HTTP server built from scratch using Python sockets - handling requests and responses the old-school way.",
+    tech: ["Python", "Socket Programming"],
+    source: "https://github.com/rohilvarma/http-server-python",
+    live: null,
+    status: {
+      name: "Completed",
+      variant: "success",
+    },
+  },
+  {
+    title: "Portfolio",
+    description:
+      "A minimalist showcase of my developer journey, crafted with Next.js and styled with precision.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Clerk",
+      "Drizzle",
+      "Tailwind CSS",
+      "Shadcn",
+    ],
+    source: "https://github.com/rohilvarma/rohil-varma-portfolio",
+    live: "https://rohilvarma.in/",
+    status: {
+      name: "Completed",
+      variant: "success",
+    },
+  },
+  {
+    title: "Panvar Billing Suite",
+    description:
+      "Custom invoicing solution built for Panvar - streamlining billing workflows with modern tech and clean design.",
+    tech: ["Angular", "TypeScript", "Tailwind CSS", "NextAuth", "Supabase"],
+    source: "https://github.com/rohilvarma/panvar-billing-suite",
+    live: "https://panvar-billing-suite.vercel.app/",
+    status: {
+      name: "Completed",
+      variant: "success",
+    },
+  },
+  {
+    title: "Wordle Clone",
+    description:
+      "A homemade version of everyone's favorite five-letter word puzzle. Same addictive gameplay, fresh implementation.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
+    source: "https://github.com/rohilvarma/wordle-clone",
+    live: "https://wordle-clone-taupe.vercel.app/",
+    status: {
+      name: "Completed",
+      variant: "success",
+    },
+  },
+];
