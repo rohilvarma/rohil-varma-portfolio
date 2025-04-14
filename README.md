@@ -5,7 +5,7 @@
 - [ ] Visit count
   - [ ] Include date and time stamps
 - [X] My stack
-- [ ] Motion animations
+- [X] Motion animations
 - [X] Blog
   - [ ] Blog View count
 - [ ] Photography

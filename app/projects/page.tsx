@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { projects } from "@/lib/constants";
+import * as motion from "motion/react-client";
 import { Metadata } from "next";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
@@ -33,40 +34,55 @@ const ProjectsPage = () => {
       <section id="tech-stack" className="mt-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, index) => (
-            <Card className="flex flex-col" key={index}>
-              <CardHeader>
-                <CardTitle className="text-2xl flex justify-between items-start">
-                  <span className="font-bold">{project.title}</span>
-                  <Badge
-                    variant={project.status.variant}
-                    className="rounded-full"
-                  >
-                    {project.status.name}
-                  </Badge>
-                </CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-1.5">
-                {
-                  project.tech.map((t, i) => <SkillBadge key={i} name={t} />)
-                }
-              </CardContent>
-              <CardFooter className="grid grid-cols-2 gap-2 mt-auto">
-                <Link href={project.source}>
-                  <Button variant="secondary" className="w-full">
-                    <FaGithub /> Source Code
-                  </Button>
-                </Link>
-                {project.live && (
-                  <Link href={project.live} target="_blank">
-                    <Button className="w-full">
-                      <GrDeploy />
-                      Website
+            <motion.div
+              key={index}
+              initial={{
+                opacity: 0,
+                y: index*10,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              whileHover={{
+                y: -5,
+              }}
+            >
+              <Card className="flex flex-col h-full">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex justify-between items-start">
+                    <span className="font-bold">{project.title}</span>
+                    <Badge
+                      variant={project.status.variant}
+                      className="rounded-full"
+                    >
+                      {project.status.name}
+                    </Badge>
+                  </CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-1.5">
+                  {project.tech.map((t, i) => (
+                    <SkillBadge key={i} name={t} />
+                  ))}
+                </CardContent>
+                <CardFooter className="grid grid-cols-2 gap-2 mt-auto">
+                  <Link href={project.source}>
+                    <Button variant="secondary" className="w-full">
+                      <FaGithub /> Source Code
                     </Button>
                   </Link>
-                )}
-              </CardFooter>
-            </Card>
+                  {project.live && (
+                    <Link href={project.live} target="_blank">
+                      <Button className="w-full">
+                        <GrDeploy />
+                        Website
+                      </Button>
+                    </Link>
+                  )}
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>

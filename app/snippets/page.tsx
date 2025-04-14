@@ -2,6 +2,7 @@ import SkillBadge from "@/components/SkillBadge";
 import Title from "@/components/Title";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { snippets } from "@/lib/constants";
+import * as motion from "motion/react-client";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -23,18 +24,33 @@ const SnippetsPage = () => {
       <section className="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         {snippets.map((snippet, index) => {
           return (
-            <Link href={snippet.link} key={index}>
-              <Card className="max-w-sm">
-                <CardHeader>
-                  <CardTitle>{snippet.title}</CardTitle>
-                </CardHeader>
-                <CardFooter className="flex items-center gap-2 flex-wrap">
-                  {snippet.tags.map((tag, i) => (
-                    <SkillBadge key={i} name={tag} />
-                  ))}
-                </CardFooter>
-              </Card>
-            </Link>
+            <motion.div
+              key={index}
+              initial={{
+                opacity: 0,
+                y: index*10
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0
+              }}
+              whileHover={{
+                y: -5,
+              }}
+            >
+              <Link href={snippet.link}>
+                <Card className="max-w-sm">
+                  <CardHeader>
+                    <CardTitle>{snippet.title}</CardTitle>
+                  </CardHeader>
+                  <CardFooter className="flex items-center gap-2 flex-wrap">
+                    {snippet.tags.map((tag, i) => (
+                      <SkillBadge key={i} name={tag} />
+                    ))}
+                  </CardFooter>
+                </Card>
+              </Link>
+            </motion.div>
           );
         })}
       </section>
