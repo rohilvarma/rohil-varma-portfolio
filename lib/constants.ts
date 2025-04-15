@@ -1,20 +1,30 @@
 import deloitteLogo from "@/public/deloitte_logo.jpeg";
+import { FaJava } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
 import {
-  SiDrizzle,
-  SiJavascript,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiPython,
-  SiReact,
-  SiGnubash,
-  SiSupabase,
-  SiClerk,
-  SiShadcnui,
-  SiAuth0,
-  SiTypescript,
-  SiZod,
+    SiAngular,
+    SiAuth0,
+    SiBootstrap,
+    SiClerk,
+    SiDrizzle,
+    SiGithub,
+    SiGnubash,
+    SiInstagram,
+    SiJavascript,
+    SiLeetcode,
+    SiLinkedin,
+    SiMongodb,
+    SiNextdotjs,
+    SiPostgresql,
+    SiPython,
+    SiReact,
+    SiShadcnui,
+    SiSupabase,
+    SiTailwindcss,
+    SiTypescript,
+    SiZod,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 
 type Project = {
   title: string;
@@ -36,22 +46,22 @@ export const workEx = [
   {
     company: "Deloitte",
     designation: "Software Engineer 1",
-    from: "Jun/2024",
+    from: "06/2024",
     to: "Present",
     icon: deloitteLogo,
   },
   {
     company: "Deloitte",
     designation: "Associate Software Engineer",
-    from: "Jun/2022",
-    to: "Jun/2024",
+    from: "06/2022",
+    to: "06/2024",
     icon: deloitteLogo,
   },
   {
     company: "Deloitte",
     designation: "Technology Intern",
-    from: "Jan/2022",
-    to: "April/2022",
+    from: "01/2022",
+    to: "04/2022",
     icon: deloitteLogo,
   },
 ];
@@ -204,12 +214,18 @@ export const SKILL_MAP: IconMap = {
   NextAuth: SiAuth0,
   Shadcn: SiShadcnui,
   Zod: SiZod,
+  MongoDB: SiMongodb,
+  SQL: SiPostgresql,
+  Azure: VscAzure,
+  Java: FaJava,
+  Angular: SiAngular,
+  Bootstrap: SiBootstrap,
 };
 
 export const skills = {
   languages: ["TypeScript", "JavaScript", "Python", "Java"],
-  frameworks: ["Next.js", "Angular", "Tailwind", "BootStrap"],
-  database: ["Neon Postgres", "Supabase", "Drizzle ORM", "MongoDB", "SQL"],
+  frameworks: ["Next.js", "Angular", "Tailwind CSS", "Bootstrap"],
+  database: ["Neon Postgres", "Supabase", "Drizzle", "MongoDB", "SQL"],
   auth: ["NextAuth", "Clerk"],
   cloud: ["Azure"],
 };
@@ -301,5 +317,28 @@ export const projects: Project[] = [
       name: "Completed",
       variant: "success",
     },
+  },
+];
+
+export const socials = [
+  {
+    label: "GitHub",
+    link: "https://github.com/rohilvarma",
+    icon: SiGithub,
+  },
+  {
+    label: "LinkedIn",
+    link: "https://www.linkedin.com/in/rohil-varma/",
+    icon: SiLinkedin,
+  },
+  {
+    label: "LeetCode",
+    link: "https://leetcode.com/u/rohilvarma96/",
+    icon: SiLeetcode,
+  },
+  {
+    label: "Instagram",
+    link: "https://www.instagram.com/_rohilvarma_/",
+    icon: SiInstagram,
   },
 ];

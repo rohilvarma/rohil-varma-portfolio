@@ -4,13 +4,15 @@ import Title from "@/components/Title";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
+import * as motion from "motion/react-client";
 import { Metadata } from "next";
 import { FaGithub } from "react-icons/fa6";
 import { getComments } from "./actions";
 
 export const metadata: Metadata = {
   title: "Guestbook | Rohil Varma",
-  description: "If you know me or follow my works or if you just liked what you see.",
+  description:
+    "If you know me or follow my works or if you just liked what you see.",
 };
 
 const GuestbookPage = async () => {
@@ -37,10 +39,21 @@ const GuestbookPage = async () => {
     }
     return response.data.map((comment, index) => {
       return (
-        <div className="" key={index}>
+        <motion.div
+          className=""
+          key={index}
+          initial={{
+            opacity: 0,
+            y: index * 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+        >
           <p className="text-neutral-600 font-bold">{comment.name}:</p>
           <p className="">{comment.comment}</p>
-        </div>
+        </motion.div>
       );
     });
   };

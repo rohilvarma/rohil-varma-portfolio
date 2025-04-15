@@ -1,59 +1,168 @@
-import WavingEmoji from "@/components/WavingEmoji";
-import profile from "@/public/profile.jpeg";
-import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import Work from "@/components/Work";
+import SkillBadge from "@/components/SkillBadge";
+import Title from "@/components/Title";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { projects, skills, snippets, socials, workEx } from "@/lib/constants";
 import Image from "next/image";
+import Link from "next/link";
+import * as motion from "motion/react-client";
 
 export default function Home() {
   return (
     <main className="">
-      <section className="">
-        <div className="flex items-center justify-between">
-          <div className="">
-            <h1 className="font-bold text-6xl flex items-center gap-4">
-              <span className="">Hi, I&apos;m Rohil</span>
-              <WavingEmoji />
-            </h1>
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="lg:col-span-2 space-y-6 md:space-y-8 lg:space-y-12 mb-6 lg:mb-0">
+          <motion.div
+            className="flex items-center gap-5"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.4,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }}
+            style={{
+              width: "fit-content",
+              height: "fit-content",
+              borderRadius: "50%",
+            }}
+          >
             <div className="">
-              <div className="text-muted-foreground text-xl mt-4 mb-2 flex items-start gap-2">
-                I love building solutions in and{" "}
-                .
-              </div>
-              <div className="flex items-center gap-2">
-                <Link target="_blank" href="https://github.com/rohilvarma">
-                  <FaGithub size={25} />
-                </Link>
-                <Link target="_blank" href="https://linkedin.com/in/rohilvarma">
-                  <FaLinkedin size={25} />
-                </Link>
-              </div>
+              <Image
+                src="/profile.jpeg"
+                width={75}
+                height={75}
+                alt="Profile Photo"
+                className="rounded-full"
+              />
+            </div>
+            <div className="flex-grow">
+              <Title title="Rohil Varma" hoverText="@rohilvarma" size={2} />
+              <p className="text-muted-foreground -mt-2">Software Engineer</p>
+            </div>
+          </motion.div>
+          <div className="text-primary mt-4">
+            I&apos;m a developer and a keyboard-enthusiast. I work at{" "}
+            <Link
+              className="text-muted-foreground hover:text-muted ease-linear"
+              href="https://www2.deloitte.com/ui/en.html"
+              target="_blank"
+            >
+              Deloitte
+            </Link>{" "}
+            as a backend engineer, where I build finance solutions while
+            pursuing personal projecrs that make my own daily life a little
+            easier.
+          </div>
+          <div className="">
+            <Title title="Writing" size={2} />
+            <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
+              {snippets.map((sn, i) => (
+                <li key={i}>
+                  <Link
+                    href={sn.link}
+                    className="hover:text-neutral-500 underline"
+                  >
+                    {sn.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="">
+            <Title title="Code" size={2} />
+            <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
+              {projects.slice(0, 3).map((pr, i) => (
+                <li key={i}>
+                  <Link
+                    href={pr.source}
+                    className="hover:text-neutral-500 underline"
+                  >
+                    {pr.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="">
+            <Title title="Socials" size={2} />
+            <ul className="text-2xl flex items-center gap-2 flex-wrap">
+              {socials.map((social, i) => {
+                const Icon = social.icon;
+                return (
+                  <li key={i} className="">
+                    <Link href={social.link} target="_blank">
+                      <Icon />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="space-y-6 md:space-y-8 lg:space-y-12">
+          <div className="">
+            <Title title="Work" size={2} />
+            <div className="space-y-4">
+              {workEx.map((ex, index) => {
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex gap-2 items-center"
+                    initial={{
+                      opacity: 0,
+                      y: index * 10,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                  >
+                    <Avatar className="border-2 border-muted">
+                      <AvatarImage src={ex.icon.src} />
+                      <AvatarFallback>D</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-grow">
+                      <h2 className="font-semibold">{ex.company}</h2>
+                      <div className="text-muted-foreground text-xs flex items-center justify-between">
+                        <p className="">{ex.designation}</p>
+                        <p className="">
+                          {ex.from} - {ex.to}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
-          <Image
-            src={profile.src}
-            width={225}
-            height={225}
-            alt="@rohilvarma"
-            className="rounded-full border-4 border-blue-600"
-          />
+          <div className="">
+            <Title title="Skills" size={2} />
+            <div className="">
+              {Object.entries(skills).map(([category, items], index) => (
+                <motion.div
+                  key={category}
+                  className="mb-4"
+                  initial={{
+                    opacity: 0,
+                    y: index * 10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                >
+                  <h3 className="text-lg font-semibold capitalize mb-1">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap gap-1">
+                    {items.map((item, index) => (
+                      <SkillBadge key={index} name={item} />
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
-      <section className="grid grid-cols-5 mt-8">
-        <div className="col-span-3"></div>
-        <div className="col-span-2">
-          <Work />
-        </div>
-      </section>
-      <section id="contact-me">
-        
-        {/* 
-         
-         Add a Get in Touch component,
-         
-         Take reference: https://portfolio-magicui.vercel.app/
-         
-          */}
       </section>
     </main>
   );

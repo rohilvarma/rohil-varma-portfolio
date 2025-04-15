@@ -1,5 +1,6 @@
 import Title from "@/components/Title";
 import { uses } from "@/lib/constants";
+import * as motion from "motion/react-client";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,12 +40,23 @@ const UsesPage = () => {
               <h1 className="font-bold text-3xl">{u.heading}</h1>
               <ul className="list-disc pl-4 md:pl-0 md:list-none">
                 {u.items.map((item, index) => (
-                  <li key={index} className="mb-8">
+                  <motion.li
+                    key={index}
+                    className="mb-8"
+                    initial={{
+                      opacity: 0,
+                      y: index * 10,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                  >
                     <Link href={item.link} className="text-xl font-medium">
                       {item.item}
                     </Link>
                     <p className="text-muted-foreground">{item.description}</p>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>

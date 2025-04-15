@@ -40,7 +40,7 @@ const ProjectsPage = () => {
                 opacity: 0,
                 y: index*10,
               }}
-              whileInView={{
+              animate={{
                 opacity: 1,
                 y: 0,
               }}

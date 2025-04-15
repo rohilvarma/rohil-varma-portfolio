@@ -12,6 +12,7 @@
 - [X] Snippets
 - [X] Theme
 - [X] Decide the contents of the footer
+- [ ] Improve light theme color scheme
 
 
 
