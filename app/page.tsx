@@ -42,14 +42,14 @@ export default function Home() {
           <div className="text-primary mt-4">
             I&apos;m a developer and a keyboard-enthusiast. I work at{" "}
             <Link
-              className="text-muted-foreground hover:text-muted ease-linear"
+              className="link"
               href="https://www2.deloitte.com/ui/en.html"
               target="_blank"
             >
               Deloitte
             </Link>{" "}
             as a backend engineer, where I build finance solutions while
-            pursuing personal projecrs that make my own daily life a little
+            pursuing personal projects that make my own daily life a little
             easier.
           </div>
           <div className="">
@@ -59,7 +59,7 @@ export default function Home() {
                 <li key={i}>
                   <Link
                     href={sn.link}
-                    className="hover:text-neutral-500 underline"
+                    className="link"
                   >
                     {sn.title}
                   </Link>
@@ -74,7 +74,7 @@ export default function Home() {
                 <li key={i}>
                   <Link
                     href={pr.source}
-                    className="hover:text-neutral-500 underline"
+                    className="link"
                   >
                     {pr.title}
                   </Link>

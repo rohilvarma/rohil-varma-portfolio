@@ -75,3 +75,9 @@
         @apply bg-background text-foreground;
     }
 }
+
+@layer components {
+    .link {
+        @apply underline dark:text-neutral-500 dark:hover:text-neutral-600 text-neutral-900 hover:text-neutral-500 duration-200 ease-linear;
+    }
+}

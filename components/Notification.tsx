@@ -21,7 +21,8 @@ const Notification = ({
       variant,
       title,
       description: message,
-      duration: 3000
+      duration: 3000,
+      position: "top-right"
     });
   }, [variant, title, message, toast]);
 

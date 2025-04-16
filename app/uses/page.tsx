@@ -15,11 +15,10 @@ const UsesPage = () => {
     <main>
       <Title title="/uses" />
       <p className="text-primary">
-        If you’ve ever wondered what I’m using be it software, hardware, fonts,
-        etc. then this page is dedicated for that. Based on{" "}
+        If you&apos;ve ever wondered about the tools I use - whether it's software, hardware, fonts, or anything else - this page has all the details. Inspired by {" "}
         <Link
           href="https://uses.tech/"
-          className="underline dark:text-neutral-500 dark:hover:text-neutral-600 text-neutral-900 hover:text-neutral-500 duration-200 ease-linear"
+          className="link"
         >
           uses.tech
         </Link>
