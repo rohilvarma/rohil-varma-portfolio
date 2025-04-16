@@ -15,7 +15,7 @@ const UsesPage = () => {
     <main>
       <Title title="/uses" />
       <p className="text-primary">
-        If you&apos;ve ever wondered about the tools I use - whether it's software, hardware, fonts, or anything else - this page has all the details. Inspired by {" "}
+        If you&apos;ve ever wondered about the tools I use - whether it&apos;s software, hardware, fonts, or anything else - this page has all the details. Inspired by {" "}
         <Link
           href="https://uses.tech/"
           className="link"
