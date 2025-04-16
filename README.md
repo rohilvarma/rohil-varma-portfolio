@@ -2,8 +2,8 @@
 
 ## Features
 - [X] Guest Book
-- [ ] Visit count
-  - [ ] Include date and time stamps
+- [X] Visit count
+  - [X] Include date and time stamps
 - [X] My stack
 - [X] Motion animations
 - [X] Blog
@@ -11,8 +11,11 @@
 - [ ] Photography
 - [X] Snippets
 - [X] Theme
+
+## ToDo
 - [X] Decide the contents of the footer
 - [ ] Improve light theme color scheme
-
+- [ ] Add production support for clerk
+- [ ] Add umami before pushing to production
 
 

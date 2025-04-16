@@ -90,7 +90,9 @@ const GuestbookForm = ({ fullName, firstName, email, denyComment }: User) => {
       <div className="flex items-stretch gap-2">
         <Button type="submit">Submit</Button>
         <SignOutButton>
-          <Button variant="destructive">Sign out</Button>
+          <Button variant="destructive" type="button">
+            Sign out
+          </Button>
         </SignOutButton>
       </div>
     </form>

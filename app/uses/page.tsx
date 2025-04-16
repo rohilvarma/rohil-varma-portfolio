@@ -15,11 +15,10 @@ const UsesPage = () => {
     <main>
       <Title title="/uses" />
       <p className="text-primary">
-        If you&apos;ve ever wondered about the tools I use - whether it&apos;s software, hardware, fonts, or anything else - this page has all the details. Inspired by {" "}
-        <Link
-          href="https://uses.tech/"
-          className="link"
-        >
+        If you&apos;ve ever wondered about the tools I use - whether it&apos;s
+        software, hardware, fonts, or anything else - this page has all the
+        details. Inspired by{" "}
+        <Link href="https://uses.tech/" className="link">
           uses.tech
         </Link>
         .
@@ -36,7 +35,9 @@ const UsesPage = () => {
         {uses.map((u, i) => {
           return (
             <div key={i} className="grid md:grid-cols-2 gap-4 sm:gap-0">
-              <h1 className="font-bold text-3xl">{u.heading}</h1>
+              <div className="">
+                <Title size={3} title={u.heading} />
+              </div>
               <ul className="list-disc pl-4 md:pl-0 md:list-none">
                 {u.items.map((item, index) => (
                   <motion.li

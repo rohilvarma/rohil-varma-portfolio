@@ -5,6 +5,8 @@ import { projects, skills, snippets, socials, workEx } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import * as motion from "motion/react-client";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export default function Home() {
   return (
@@ -57,10 +59,7 @@ export default function Home() {
             <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
               {snippets.map((sn, i) => (
                 <li key={i}>
-                  <Link
-                    href={sn.link}
-                    className="link"
-                  >
+                  <Link href={sn.link} className="link">
                     {sn.title}
                   </Link>
                 </li>
@@ -72,10 +71,7 @@ export default function Home() {
             <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
               {projects.slice(0, 3).map((pr, i) => (
                 <li key={i}>
-                  <Link
-                    href={pr.source}
-                    className="link"
-                  >
+                  <Link href={pr.source} className="link">
                     {pr.title}
                   </Link>
                 </li>
@@ -132,6 +128,16 @@ export default function Home() {
                   </motion.div>
                 );
               })}
+              <Button className="w-full">
+                <Link
+                  href="/Rohil Varma.pdf"
+                  target="_blank"
+                  download="Rohil Varma.pdf"
+                  className="flex items-center gap-2"
+                >
+                  <Download /> Resume
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="">
