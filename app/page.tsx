@@ -34,7 +34,7 @@ export default function Home() {
                 className="rounded-full"
               />
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow w-full">
               <Title title="Rohil Varma" hoverText="@rohilvarma" size={2} />
               <p className="text-muted-foreground -mt-2">Software Engineer</p>
             </div>

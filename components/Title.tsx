@@ -48,10 +48,10 @@ const Title = ({ title, hoverText, size = 4 }: TitleProps) => {
       <motion.h1
         className="absolute bottom-0 leading-10 pb-2"
         initial={{
-          y: 50,
+          y: 100,
         }}
         animate={{
-          y: isHovered ? 0 : 50,
+          y: isHovered ? 0 : 100,
         }}
         transition={{
           type: "spring",
