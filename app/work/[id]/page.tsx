@@ -13,6 +13,18 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return { title: `${project.title} — Rohil Varma` };
 }
 
+const Placeholder = ({ children }: { children: React.ReactNode }) => (
+  <div className="bg-surface border border-dashed border-line rounded-md px-5 py-4 text-[13px] text-muted font-mono my-3 leading-[1.6] transition-colors duration-[180ms]">
+    <span className="text-faint">// </span>{children}
+  </div>
+);
+
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+  <div className="doc-section-title text-[12px] font-mono text-muted tracking-[0.08em] uppercase mb-3 flex items-center gap-2">
+    {children}
+  </div>
+);
+
 export default async function ProjectDocPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const idx = projects.findIndex((p) => p.slug === id);
@@ -24,176 +36,151 @@ export default async function ProjectDocPage({ params }: { params: Promise<{ id:
 
   return (
     <>
-      <Link href="/" className="back-btn">← Back to work</Link>
+      <Link href="/" className="text-[11px] text-muted font-mono inline-flex items-center gap-[6px] tracking-[0.04em] px-10 py-5 transition-colors duration-[180ms] hover:text-ink max-sm:px-5 max-sm:py-4">
+        ← Back to work
+      </Link>
 
-      <div className="doc-wrap">
-        <div className="doc-tag">Technical documentation · {project.id}</div>
-        <h2 className="doc-h">{project.title}</h2>
+      <div className="px-10 pb-20 max-w-[720px] max-sm:px-5 max-sm:pb-16">
 
-        <div className="doc-meta">
-          <div className="doc-meta-item">
-            <div className="k">Role</div>
-            <div className="v">{project.meta.role}</div>
-          </div>
-          <div className="doc-meta-item">
-            <div className="k">Year</div>
-            <div className="v">{project.meta.year}</div>
-          </div>
-          <div className="doc-meta-item">
-            <div className="k">Team size</div>
-            <div className="v">{project.meta.team}</div>
-          </div>
-          <div className="doc-meta-item">
-            <div className="k">Stack</div>
-            <div className="v">{project.meta.stack}</div>
-          </div>
+        {/* Header */}
+        <div className="text-[10px] font-mono text-faint tracking-[0.1em] uppercase mb-[14px] flex items-center gap-2">
+          Technical documentation · {project.id}
+        </div>
+        <h2 className="text-[clamp(22px,3.5vw,32px)] font-light tracking-[-0.025em] leading-[1.2] text-ink mb-6">
+          {project.title}
+        </h2>
+
+        {/* Meta strip */}
+        <div className="flex gap-5 flex-wrap py-[14px] border-y border-y-[0.5px] border-line mb-9 transition-colors duration-[180ms]">
+          {[
+            { k: 'Role',      v: project.meta.role  },
+            { k: 'Year',      v: project.meta.year  },
+            { k: 'Team size', v: project.meta.team  },
+            { k: 'Stack',     v: project.meta.stack },
+          ].map(({ k, v }) => (
+            <div key={k}>
+              <div className="text-[10px] font-mono text-faint uppercase tracking-[0.06em] mb-[3px]">{k}</div>
+              <div className="text-[13px] text-ink font-medium">{v}</div>
+            </div>
+          ))}
         </div>
 
-        <div className="doc-toc">
-          <div className="doc-toc-title">Contents</div>
-          <ul className="doc-toc-list">
-            <li><a href="#sec-idea">01 — The idea</a></li>
-            <li><a href="#sec-problem">02 — The problem at scale</a></li>
-            <li><a href="#sec-approach">03 — Approach &amp; architecture</a></li>
-            <li><a href="#sec-tradeoffs">04 — Technical trade-offs</a></li>
-            <li><a href="#sec-impl">05 — Implementation notes</a></li>
-            <li><a href="#sec-results">06 — Results</a></li>
-            <li><a href="#sec-retro">07 — Retrospective</a></li>
+        {/* TOC */}
+        <div className="bg-surface border border-[0.5px] border-line rounded-md px-5 py-4 mb-9 transition-colors duration-[180ms]">
+          <div className="text-[10px] font-mono text-muted tracking-[0.08em] uppercase mb-[10px]">Contents</div>
+          <ul className="list-none flex flex-col gap-[5px]">
+            {[
+              ['#sec-idea',       '01 — The idea'],
+              ['#sec-problem',    '02 — The problem at scale'],
+              ['#sec-approach',   '03 — Approach & architecture'],
+              ['#sec-tradeoffs',  '04 — Technical trade-offs'],
+              ['#sec-impl',       '05 — Implementation notes'],
+              ['#sec-results',    '06 — Results'],
+              ['#sec-retro',      '07 — Retrospective'],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <a href={href} className="text-[12px] text-accent font-mono hover:underline">{label}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className="doc-section" id="sec-idea">
-          <div className="doc-section-title">01 — The idea</div>
-          <div className="doc-body">
-            <div className="doc-placeholder">
-              Describe what this project is and why it exists. What was the original spark — a
-              product need, a performance cliff, a tech debt emergency? 2–3 sentences is enough.
-            </div>
-          </div>
+        {/* Sections */}
+        <div className="mb-10" id="sec-idea">
+          <SectionTitle>01 — The idea</SectionTitle>
+          <Placeholder>Describe what this project is and why it exists. What was the original spark — a product need, a performance cliff, a tech debt emergency? 2–3 sentences is enough.</Placeholder>
         </div>
 
-        <div className="doc-section" id="sec-problem">
-          <div className="doc-section-title">02 — The problem at scale</div>
-          <div className="doc-body">
-            <div className="doc-placeholder">
-              Quantify the before-state. Not &quot;performance was bad&quot; — write &quot;our service
-              processed X RPM at peak; p99 latency had degraded to Xms.&quot; Numbers make the
-              problem real.
-            </div>
-            <div className="doc-placeholder">
-              Describe your constraints. What could you NOT do? Constraints prove engineering
-              maturity.
-            </div>
-          </div>
+        <div className="mb-10" id="sec-problem">
+          <SectionTitle>02 — The problem at scale</SectionTitle>
+          <Placeholder>Quantify the before-state. Not &quot;performance was bad&quot; — write &quot;our service processed X RPM at peak; p99 latency had degraded to Xms.&quot; Numbers make the problem real.</Placeholder>
+          <Placeholder>Describe your constraints. What could you NOT do? Constraints prove engineering maturity.</Placeholder>
         </div>
 
-        <div className="doc-section" id="sec-approach">
-          <div className="doc-section-title">03 — Approach &amp; architecture</div>
-          <div className="doc-body">
-            <div className="doc-placeholder">
-              Describe the approach you chose. Walk through the high-level architecture: components,
-              data flow, key interactions. Add a diagram here if you have one.
-            </div>
-            <div className="doc-placeholder">
-              List 2–3 alternatives you considered and why you didn&apos;t pick them. One sentence each.
-            </div>
-          </div>
+        <div className="mb-10" id="sec-approach">
+          <SectionTitle>03 — Approach &amp; architecture</SectionTitle>
+          <Placeholder>Describe the approach you chose. Walk through the high-level architecture: components, data flow, key interactions.</Placeholder>
+          <Placeholder>List 2–3 alternatives you considered and why you didn&apos;t pick them. One sentence each.</Placeholder>
         </div>
 
-        <div className="doc-section" id="sec-tradeoffs">
-          <div className="doc-section-title">04 — Technical trade-offs</div>
-          <div className="doc-body">
-            <table className="tradeoff-table">
-              <thead>
-                <tr>
-                  <th>Decision</th>
-                  <th>Chosen over</th>
-                  <th>Rationale</th>
+        <div className="mb-10" id="sec-tradeoffs">
+          <SectionTitle>04 — Technical trade-offs</SectionTitle>
+          <table className="w-full border-collapse text-[13px] my-3">
+            <thead>
+              <tr>
+                {['Decision', 'Chosen over', 'Rationale'].map((h) => (
+                  <th key={h} className="text-[10px] font-mono text-muted uppercase tracking-[0.06em] px-3 py-2 border-b border-b-[0.5px] border-line text-left font-normal">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['[ e.g. Eventual consistency ]', '[ Strong consistency ]',  '[ Why — what you gained, what you accepted ]'],
+                ['[ Decision 2 ]',               '[ Alternative 2 ]',       '[ Rationale 2 ]'],
+                ['[ Decision 3 ]',               '[ Alternative 3 ]',       '[ Rationale 3 ]'],
+              ].map(([d, a, r], i) => (
+                <tr key={i}>
+                  <td className="px-3 py-[10px] border-b border-b-[0.5px] border-faint text-ink font-medium align-top leading-[1.5] w-[35%]">{d}</td>
+                  <td className="px-3 py-[10px] border-b border-b-[0.5px] border-faint text-muted align-top leading-[1.5]">{a}</td>
+                  <td className="px-3 py-[10px] border-b border-b-[0.5px] border-faint text-muted align-top leading-[1.5]">{r}</td>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>[ e.g. Eventual consistency ]</td>
-                  <td>[ Strong consistency ]</td>
-                  <td>[ Why — what you gained, what you accepted ]</td>
-                </tr>
-                <tr>
-                  <td>[ Decision 2 ]</td>
-                  <td>[ Alternative 2 ]</td>
-                  <td>[ Rationale 2 ]</td>
-                </tr>
-                <tr>
-                  <td>[ Decision 3 ]</td>
-                  <td>[ Alternative 3 ]</td>
-                  <td>[ Rationale 3 ]</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <div className="doc-section" id="sec-impl">
-          <div className="doc-section-title">05 — Implementation notes</div>
-          <div className="doc-body">
-            <div className="doc-placeholder">
-              1–3 specific technical decisions worth noting: data structures, algorithms, schema
-              design, concurrency model. Use inline code snippets where they add clarity.
+        <div className="mb-10" id="sec-impl">
+          <SectionTitle>05 — Implementation notes</SectionTitle>
+          <Placeholder>1–3 specific technical decisions worth noting: data structures, algorithms, schema design, concurrency model.</Placeholder>
+          <Placeholder>Describe non-obvious gotchas you hit. What surprised you? What took longer than expected?</Placeholder>
+        </div>
+
+        <div className="mb-10" id="sec-results">
+          <SectionTitle>06 — Results</SectionTitle>
+          {[
+            { metric: 'p99 latency',          delta: '[ before ] → [ after ]', pos: true  },
+            { metric: 'Throughput',            delta: '[ before ] → [ after ]', pos: false },
+            { metric: 'Infrastructure cost',   delta: '[ delta ]',              pos: false },
+            { metric: 'Incidents post-deploy', delta: '[ count ]',              pos: false },
+          ].map((r) => (
+            <div key={r.metric} className="flex justify-between items-baseline py-[10px] border-b border-b-[0.5px] border-faint transition-colors duration-[180ms]">
+              <span className="text-[13px] text-muted">{r.metric}</span>
+              <span className={`text-sm font-medium font-mono ${r.pos ? 'text-pos' : 'text-faint italic'}`}>{r.delta}</span>
             </div>
-            <div className="doc-placeholder">
-              Describe non-obvious gotchas you hit. What surprised you? What took longer than
-              expected?
-            </div>
-          </div>
+          ))}
         </div>
 
-        <div className="doc-section" id="sec-results">
-          <div className="doc-section-title">06 — Results</div>
-          <div className="result-row">
-            <div className="metric">p99 latency</div>
-            <div className="delta pos">[ before ] → [ after ]</div>
-          </div>
-          <div className="result-row">
-            <div className="metric">Throughput</div>
-            <div className="delta ph">[ before ] → [ after ]</div>
-          </div>
-          <div className="result-row">
-            <div className="metric">Infrastructure cost</div>
-            <div className="delta ph">[ delta ]</div>
-          </div>
-          <div className="result-row">
-            <div className="metric">Incidents post-deploy</div>
-            <div className="delta ph">[ count ]</div>
-          </div>
+        <div className="mb-10" id="sec-retro">
+          <SectionTitle>07 — Retrospective</SectionTitle>
+          <Placeholder>What would you do differently if you started over? Be specific, not self-deprecating. This section signals intellectual honesty and continued growth.</Placeholder>
         </div>
 
-        <div className="doc-section" id="sec-retro">
-          <div className="doc-section-title">07 — Retrospective</div>
-          <div className="doc-body">
-            <div className="doc-placeholder">
-              What would you do differently if you started over? Be specific, not self-deprecating.
-              This section signals intellectual honesty and continued growth.
-            </div>
-          </div>
-        </div>
-
-        <div className="doc-ctas">
-          <button className="btn-primary">GitHub repo ↗</button>
-          <button className="btn-secondary">Live demo ↗</button>
+        {/* CTAs */}
+        <div className="flex gap-[10px] mt-10 pt-5 border-t border-t-[0.5px] border-line flex-wrap transition-colors duration-[180ms]">
+          <button className="bg-ink text-base text-[13px] px-5 py-[10px] rounded-md border-none cursor-pointer transition-opacity duration-[180ms] hover:opacity-80">
+            GitHub repo ↗
+          </button>
+          <button className="bg-transparent text-ink text-[13px] px-5 py-[10px] border border-[0.5px] border-line rounded-md cursor-pointer transition-colors duration-[180ms] hover:border-ink">
+            Live demo ↗
+          </button>
         </div>
       </div>
 
-      <div className="doc-nav-footer">
+      {/* Prev / Next */}
+      <div className="flex justify-between items-center px-10 py-6 border-t border-t-[0.5px] border-line transition-colors duration-[180ms] max-sm:px-5 max-sm:py-5">
         {prev ? (
-          <Link href={`/work/${prev.slug}`} className="doc-nav-btn">← {prev.title}</Link>
-        ) : (
-          <span style={{ visibility: 'hidden' }} className="doc-nav-btn">prev</span>
-        )}
-        <span className="doc-nav-pos">{idx + 1} / {projects.length}</span>
+          <Link href={`/work/${prev.slug}`} className="text-[12px] font-mono text-muted transition-colors duration-[180ms] hover:text-accent">
+            ← {prev.title}
+          </Link>
+        ) : <span />}
+        <span className="text-[11px] font-mono text-faint">{idx + 1} / {projects.length}</span>
         {next ? (
-          <Link href={`/work/${next.slug}`} className="doc-nav-btn">{next.title} →</Link>
-        ) : (
-          <span style={{ visibility: 'hidden' }} className="doc-nav-btn">next</span>
-        )}
+          <Link href={`/work/${next.slug}`} className="text-[12px] font-mono text-muted transition-colors duration-[180ms] hover:text-accent">
+            {next.title} →
+          </Link>
+        ) : <span />}
       </div>
     </>
   );

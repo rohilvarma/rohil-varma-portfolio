@@ -5,99 +5,130 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <div className="hero">
-        <div className="hero-eyebrow">Application Engineer · Google</div>
-        <h1 className="hero-h">
-          Building systems that <em>scale reliably</em> — from distributed infrastructure to the
-          tools engineers reach for every day.
+      <section className="px-10 pt-20 pb-16 max-sm:px-5 max-sm:pt-12 max-sm:pb-10">
+        <p className="text-[11px] tracking-[0.1em] text-muted uppercase font-mono mb-[22px]">
+          Application Engineer · Google
+        </p>
+        <h1 className="text-[clamp(26px,4vw,40px)] font-light leading-[1.2] tracking-[-0.025em] text-ink mb-[22px] max-w-[660px]">
+          Building systems that{' '}
+          <em className="not-italic text-accent">scale reliably</em>{' '}
+          — from distributed infrastructure to the tools engineers reach for every day.
         </h1>
-        <p className="hero-sub">
+        <p className="text-[15px] text-muted leading-[1.65] max-w-[480px] mb-9">
           I work at the intersection of platform complexity and developer experience. I care about
           observable, maintainable systems that outlive the sprint they shipped in.
         </p>
-        <div className="hero-ctas">
-          <a href="#work" className="btn-primary">View work</a>
-          <Link href="/about" className="btn-secondary">About me</Link>
+        <div className="flex gap-3 flex-wrap">
+          <a href="#work" className="bg-ink text-base text-[13px] px-5 py-[10px] rounded-md border-none cursor-pointer transition-opacity duration-[180ms] hover:opacity-80">
+            View work
+          </a>
+          <Link href="/about" className="bg-transparent text-ink text-[13px] px-5 py-[10px] border border-[0.5px] border-line rounded-md cursor-pointer transition-colors duration-[180ms] hover:border-ink">
+            About me
+          </Link>
         </div>
-        <div className="hero-metrics">
-          <div className="metric-item">
-            <div className="val">[ — ]</div>
-            <div className="lbl">latency improvement</div>
-          </div>
-          <div className="metric-item">
-            <div className="val">[ — ] yrs</div>
-            <div className="lbl">production systems</div>
-          </div>
-          <div className="metric-item">
-            <div className="val">[ — ]</div>
-            <div className="lbl">engineers served</div>
-          </div>
-          <div className="metric-item">
-            <div className="val">[ — ]</div>
-            <div className="lbl">infra cost reduction</div>
-          </div>
-        </div>
-      </div>
 
-      <div className="divider" />
+        <div className="flex gap-9 pt-11 border-t border-t-[0.5px] border-line mt-11 flex-wrap transition-colors duration-[180ms]">
+          {[
+            { val: '[ — ]',      lbl: 'latency improvement' },
+            { val: '[ — ] yrs',  lbl: 'production systems'  },
+            { val: '[ — ]',      lbl: 'engineers served'    },
+            { val: '[ — ]',      lbl: 'infra cost reduction' },
+          ].map((m) => (
+            <div key={m.lbl}>
+              <div className="text-2xl font-medium text-ink tracking-[-0.03em]">{m.val}</div>
+              <div className="text-[11px] text-muted mt-[3px] font-mono">{m.lbl}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr className="h-px border-none bg-line mx-10 max-sm:mx-5" />
 
       {/* ── WORK ── */}
-      <div className="section" id="work">
-        <div className="section-label">Selected work — {projects.length} projects · click to read technical doc</div>
-        <div className="projects-grid">
-          {projects.map((p, i) => (
-            <Link key={p.id} href={`/work/${p.slug}`} className="project-card" style={{ display: 'block' }}>
-              <div className="proj-arrow">↗</div>
-              <div className="proj-num">{p.id}</div>
-              <div className="proj-title">{p.title}</div>
-              <div className="proj-desc">{p.description}</div>
-              <div className="proj-chips">
+      <section className="px-10 py-14 max-sm:px-5 max-sm:py-10" id="work">
+        <p className="text-[13px] tracking-[0.1em] text-muted uppercase font-mono mb-8">
+          Selected work — {projects.length} projects · click to read technical doc
+        </p>
+        <div className="grid gap-px bg-line border border-[0.5px] border-line rounded-lg overflow-hidden [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))] transition-colors duration-[180ms]">
+          {projects.map((p) => (
+            <Link
+              key={p.id}
+              href={`/work/${p.slug}`}
+              className="group relative block bg-base p-7 transition-colors duration-[180ms] hover:bg-surface"
+            >
+              <span className="absolute top-[26px] right-[26px] text-[13px] text-accent opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                ↗
+              </span>
+              <div className="text-[11px] font-mono text-faint mb-4">{p.id}</div>
+              <div className="text-[16px] font-medium text-ink tracking-[-0.015em] mb-2 leading-[1.25]">{p.title}</div>
+              <div className="text-[13px] text-muted leading-[1.55] mb-[18px]">{p.description}</div>
+              <div className="flex gap-[5px] flex-wrap mb-[18px]">
                 {p.chips.map((chip) => (
-                  <span key={chip} className="proj-chip">{chip}</span>
+                  <span key={chip} className="text-[11px] font-mono text-chip-ink bg-chip px-[7px] py-[3px] rounded-[3px] transition-colors duration-[180ms]">
+                    {chip}
+                  </span>
                 ))}
-                <span className="proj-chip accent">{p.accentChip}</span>
+                <span className="text-[11px] font-mono text-accent-dim bg-accent-tint px-[7px] py-[3px] rounded-[3px] transition-colors duration-[180ms]">
+                  {p.accentChip}
+                </span>
               </div>
-              <div className="proj-outcomes">
+              <div className="flex gap-[14px] pt-[14px] border-t border-t-[0.5px] border-line flex-wrap transition-colors duration-[180ms]">
                 {p.outcomes.map((o) => (
-                  <div key={o.label} className="outcome">
-                    {o.value} <span>{o.label}</span>
+                  <div key={o.label} className="text-[12px] text-ink font-medium">
+                    {o.value} <span className="text-muted font-normal">{o.label}</span>
                   </div>
                 ))}
               </div>
-              <div className="proj-read-more">Read technical doc →</div>
+              <div className="mt-4 text-[12px] text-accent font-mono inline-flex items-center gap-1">
+                Read technical doc →
+              </div>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="divider" />
+      <hr className="h-px border-none bg-line mx-10 max-sm:mx-5" />
 
       {/* ── STACK ── */}
-      <div className="section">
-        <div className="section-label">Tech stack — depth map</div>
-        <div className="stack-section">
+      <section className="px-10 py-14 max-sm:px-5 max-sm:py-10">
+        <p className="text-[13px] tracking-[0.1em] text-muted uppercase font-mono mb-8">
+          Tech stack — depth map
+        </p>
+        <div className="grid gap-7 [grid-template-columns:repeat(auto-fit,minmax(190px,1fr))]">
           {stackGroups.map((group) => (
-            <div key={group.title} className="stack-group">
-              <div className="sg-title">{group.title}</div>
+            <div key={group.title}>
+              <div className="text-[11px] tracking-[0.08em] uppercase text-muted font-mono mb-3 pb-2 border-b border-b-[0.5px] border-line transition-colors duration-[180ms]">
+                {group.title}
+              </div>
               {group.items.map((item) => (
-                <div key={item.name} className="stack-item">
+                <div key={item.name} className="text-[13px] text-muted py-[5px] border-b border-b-[0.5px] border-faint flex justify-between items-center transition-colors duration-[180ms]">
                   {item.name}
-                  <span className={`depth${item.deep ? ' deep' : ''}`}>{item.depth}</span>
+                  <span className={`text-[10px] font-mono ${item.deep ? 'text-accent' : 'text-faint'}`}>
+                    {item.depth}
+                  </span>
                 </div>
               ))}
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* ── CONTACT ── */}
-      <div className="contact-strip" id="contact">
+      <div id="contact" className="px-10 py-12 border-t border-t-[0.5px] border-line flex items-start justify-between flex-wrap gap-6 transition-colors duration-[180ms] max-sm:px-5 max-sm:py-10">
         <div>
-          <div className="contact-h">Let&apos;s work on something that matters at scale.</div>
-          <div className="contact-actions">
-            <a href="mailto:rohilvarma96@gmail.com" className="btn-primary">rohilvarma96@gmail.com</a>
-            <a href="https://github.com/rohilvarma" target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub ↗</a>
-            <a href="https://linkedin.com/in/rohilvarma" target="_blank" rel="noopener noreferrer" className="btn-secondary">LinkedIn ↗</a>
+          <p className="text-[20px] font-light tracking-[-0.02em] text-ink max-w-[340px] leading-[1.35]">
+            Let&apos;s work on something that matters at scale.
+          </p>
+          <div className="flex gap-[10px] flex-wrap mt-3">
+            <a href="mailto:rohilvarma96@gmail.com" className="bg-ink text-base text-[13px] px-5 py-[10px] rounded-md cursor-pointer transition-opacity duration-[180ms] hover:opacity-80">
+              rohilvarma96@gmail.com
+            </a>
+            <a href="https://github.com/rohilvarma" target="_blank" rel="noopener noreferrer" className="bg-transparent text-ink text-[13px] px-5 py-[10px] border border-[0.5px] border-line rounded-md cursor-pointer transition-colors duration-[180ms] hover:border-ink">
+              GitHub ↗
+            </a>
+            <a href="https://linkedin.com/in/rohilvarma" target="_blank" rel="noopener noreferrer" className="bg-transparent text-ink text-[13px] px-5 py-[10px] border border-[0.5px] border-line rounded-md cursor-pointer transition-colors duration-[180ms] hover:border-ink">
+              LinkedIn ↗
+            </a>
           </div>
         </div>
       </div>

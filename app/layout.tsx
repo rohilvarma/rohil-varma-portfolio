@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           <Navbar />
-          <main className="page-main">
+          <main className="max-w-[1200px] mx-auto">
             {children}
           </main>
         </ThemeProvider>
