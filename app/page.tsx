@@ -1,175 +1,106 @@
-import SkillBadge from "@/components/SkillBadge";
-import Title from "@/components/Title";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { projects, skills, snippets, socials, workEx } from "@/lib/constants";
-import Image from "next/image";
-import Link from "next/link";
-import * as motion from "motion/react-client";
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import Link from 'next/link';
+import { projects, stackGroups } from '@/lib/data';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="">
-      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="lg:col-span-2 space-y-6 md:space-y-8 lg:space-y-12 mb-6 lg:mb-0">
-          <motion.div
-            className="flex items-center gap-5"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.4,
-              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}
-            style={{
-              width: "fit-content",
-              height: "fit-content",
-              borderRadius: "50%",
-            }}
-          >
-            <div className="">
-              <Image
-                src="/profile.jpeg"
-                width={75}
-                height={75}
-                alt="Profile Photo"
-                className="rounded-full"
-              />
-            </div>
-            <div className="flex-grow w-full">
-              <Title title="Rohil Varma" hoverText="@rohilvarma" size={2} />
-              <p className="text-muted-foreground -mt-2">Software Engineer</p>
-            </div>
-          </motion.div>
-          <div className="text-primary mt-4">
-            I&apos;m a developer and a keyboard-enthusiast. I work at{" "}
-            <Link
-              className="link"
-              href="https://www2.deloitte.com/ui/en.html"
-              target="_blank"
-            >
-              Deloitte
-            </Link>{" "}
-            as a backend engineer, where I build finance solutions while
-            pursuing personal projects that make my own daily life a little
-            easier.
+    <>
+      {/* ── HERO ── */}
+      <div className="hero">
+        <div className="hero-eyebrow">Application Engineer · Google</div>
+        <h1 className="hero-h">
+          Building systems that <em>scale reliably</em> — from distributed infrastructure to the
+          tools engineers reach for every day.
+        </h1>
+        <p className="hero-sub">
+          I work at the intersection of platform complexity and developer experience. I care about
+          observable, maintainable systems that outlive the sprint they shipped in.
+        </p>
+        <div className="hero-ctas">
+          <a href="#work" className="btn-primary">View work</a>
+          <Link href="/about" className="btn-secondary">About me</Link>
+        </div>
+        <div className="hero-metrics">
+          <div className="metric-item">
+            <div className="val">[ — ]</div>
+            <div className="lbl">latency improvement</div>
           </div>
-          <div className="">
-            <Title title="Writing" size={2} />
-            <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
-              {snippets.map((sn, i) => (
-                <li key={i}>
-                  <Link href={sn.link} className="link">
-                    {sn.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="metric-item">
+            <div className="val">[ — ] yrs</div>
+            <div className="lbl">production systems</div>
           </div>
-          <div className="">
-            <Title title="Code" size={2} />
-            <ul className="text-muted-foreground duration-100 ease-linear list-disc list-inside pl-2">
-              {projects.slice(0, 3).map((pr, i) => (
-                <li key={i}>
-                  <Link href={pr.source} className="link">
-                    {pr.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="metric-item">
+            <div className="val">[ — ]</div>
+            <div className="lbl">engineers served</div>
           </div>
-          <div className="">
-            <Title title="Socials" size={2} />
-            <ul className="text-2xl flex items-center gap-2 flex-wrap">
-              {socials.map((social, i) => {
-                const Icon = social.icon;
-                return (
-                  <li key={i} className="">
-                    <Link href={social.link} target="_blank">
-                      <Icon />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+          <div className="metric-item">
+            <div className="val">[ — ]</div>
+            <div className="lbl">infra cost reduction</div>
           </div>
         </div>
-        <div className="space-y-6 md:space-y-8 lg:space-y-12">
-          <div className="">
-            <Title title="Work" size={2} />
-            <div className="space-y-4">
-              {workEx.map((ex, index) => {
-                return (
-                  <motion.div
-                    key={index}
-                    className="flex gap-2 items-center"
-                    initial={{
-                      opacity: 0,
-                      y: index * 10,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                  >
-                    <Avatar className="border-2 border-muted">
-                      <AvatarImage src={ex.icon.src} />
-                      <AvatarFallback>D</AvatarFallback>
-                    </Avatar>
-                    <div className="flex-grow">
-                      <h2 className="font-semibold">{ex.company}</h2>
-                      <div className="text-muted-foreground text-xs flex items-center justify-between">
-                        <p className="">{ex.designation}</p>
-                        <p className="">
-                          {ex.from} - {ex.to}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-              <Button className="w-full">
-                <Link
-                  href="/Rohil Varma.pdf"
-                  target="_blank"
-                  download="Rohil Varma.pdf"
-                  className="flex items-center gap-2"
-                >
-                  <Download /> Resume
-                </Link>
-              </Button>
-            </div>
-          </div>
-          <div className="">
-            <Title title="Skills" size={2} />
-            <div className="">
-              {Object.entries(skills).map(([category, items], index) => (
-                <motion.div
-                  key={category}
-                  className="mb-4"
-                  initial={{
-                    opacity: 0,
-                    y: index * 10,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                >
-                  <h3 className="text-lg font-semibold capitalize mb-1">
-                    {category}
-                  </h3>
-                  <div className="flex flex-wrap gap-1">
-                    {items.map((item, index) => (
-                      <SkillBadge key={index} name={item} />
-                    ))}
+      </div>
+
+      <div className="divider" />
+
+      {/* ── WORK ── */}
+      <div className="section" id="work">
+        <div className="section-label">Selected work — {projects.length} projects · click to read technical doc</div>
+        <div className="projects-grid">
+          {projects.map((p, i) => (
+            <Link key={p.id} href={`/work/${p.slug}`} className="project-card" style={{ display: 'block' }}>
+              <div className="proj-arrow">↗</div>
+              <div className="proj-num">{p.id}</div>
+              <div className="proj-title">{p.title}</div>
+              <div className="proj-desc">{p.description}</div>
+              <div className="proj-chips">
+                {p.chips.map((chip) => (
+                  <span key={chip} className="proj-chip">{chip}</span>
+                ))}
+                <span className="proj-chip accent">{p.accentChip}</span>
+              </div>
+              <div className="proj-outcomes">
+                {p.outcomes.map((o) => (
+                  <div key={o.label} className="outcome">
+                    {o.value} <span>{o.label}</span>
                   </div>
-                </motion.div>
+                ))}
+              </div>
+              <div className="proj-read-more">Read technical doc →</div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="divider" />
+
+      {/* ── STACK ── */}
+      <div className="section">
+        <div className="section-label">Tech stack — depth map</div>
+        <div className="stack-section">
+          {stackGroups.map((group) => (
+            <div key={group.title} className="stack-group">
+              <div className="sg-title">{group.title}</div>
+              {group.items.map((item) => (
+                <div key={item.name} className="stack-item">
+                  {item.name}
+                  <span className={`depth${item.deep ? ' deep' : ''}`}>{item.depth}</span>
+                </div>
               ))}
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── CONTACT ── */}
+      <div className="contact-strip" id="contact">
+        <div>
+          <div className="contact-h">Let&apos;s work on something that matters at scale.</div>
+          <div className="contact-actions">
+            <a href="mailto:rohilvarma96@gmail.com" className="btn-primary">rohilvarma96@gmail.com</a>
+            <a href="https://github.com/rohilvarma" target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub ↗</a>
+            <a href="https://linkedin.com/in/rohilvarma" target="_blank" rel="noopener noreferrer" className="btn-secondary">LinkedIn ↗</a>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </>
   );
 }

@@ -1,78 +1,40 @@
-import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/toaster";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Navbar } from '@/components/Navbar';
+import '@/styles/globals.css';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-sans',
+  display: 'swap',
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Rohil Varma",
-  description: "Hi, I am Rohil! I like to build software using TypeScript.",
-  keywords: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Python",
-    "Django",
-    "Docker",
-    "Azure",
-    "Docker",
-    "Software Engineer",
-    "Full Stack Developer",
-    "Tech",
-    "Portfolio",
-    "Web Development",
-    "Python Developer",
-  ],
+  title: 'Rohil Varma — Application Engineer',
+  description:
+    'Application Engineer at Google. Building systems that scale reliably — from distributed infrastructure to the tools engineers reach for every day.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-      }}
-    >
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth mx-4 sm:px-4 xl:px-0 lg:max-w-5xl sm:mx-auto`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="flex flex-col min-h-screen">
-              <div className="h-40 w-full"></div>
-
-              <div className="flex-grow">{children}</div>
-              <Footer />
-            </div>
-          </ThemeProvider>
-          <Toaster />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
+      <body>
+        <ThemeProvider>
+          <Navbar />
+          <main className="page-main">
+            {children}
+          </main>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
